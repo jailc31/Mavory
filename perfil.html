@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mavory — Perfil Gastronômico de Caleb A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#722F37",
+            "primary-dark": "#561922",
+            "primary-container": "#722F37",
+            "on-primary": "#ffffff",
+            creme: "#FFF8F6",
+            "creme-dark": "#F7EFE2",
+            surface: "#FFF8F6",
+            "surface-low": "#FFF1EC",
+            "surface-high": "#F5E5E0",
+            "surface-highest": "#EFDFDA",
+            dourado: "#C49A54",
+            "tertiary-container": "#402A00",
+            verde: "#34483C",
+            "secondary-container": "#CEE5D5",
+            marrom: "#302724",
+            "on-surface": "#221A17",
+            "on-surface-variant": "#534343",
+            outline: "#867273",
+            "outline-variant": "#D8C1C2"
+          },
+          fontFamily: {
+            headline: ["Playfair Display", "serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="bg-surface font-body text-[#221A17] antialiased selection:bg-primary selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- ========================================== -->
+  <!-- HEADER GLOBAL                              -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-xl border-b border-[#EFDFDA]">
+    <div class="h-20 max-w-[1640px] mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="inicio.html" class="flex items-center group">
+          <img src="../assets/images/logo.png" alt="Mavory" class="h-9 w-auto object-contain mavory-logo">
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-2">
+        <a href="inicio.html" class="px-4 py-2 text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Início</a>
+        <a href="descobrir.html" class="px-4 py-2 text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Descobrir</a>
+        <a href="receitas.html" class="px-4 py-2 text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Receitas</a>
+        <a href="comunidade.html" class="px-4 py-2 text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Comunidade</a>
+        <a href="compartilhar.html" class="px-4 py-2 text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Compartilhar</a>
+      </nav>
+
+      <!-- Right Header: Perfil Ativo -->
+      <div class="flex items-center gap-3">
+        <a href="perfil.html" class="flex items-center gap-2 group p-1 pr-3 rounded-full bg-[#FBEAE5] text-primary border border-[#D8C1C2]" title="Meu Perfil">
+          <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs shadow-sm">
+            CA
+          </div>
+          <span class="text-xs font-semibold text-primary hidden sm:inline" id="headerProfileName">Caleb A</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 w-full">
+    <div class="max-w-[1640px] mx-auto px-6 lg:px-12 py-10 lg:py-14 space-y-10">
+
+      <!-- ======================================================== -->
+      <!-- PROFILE EDITORIAL DOSSIER (Fiel ao MacBook Pro 16_ - 6)  -->
+      <!-- ======================================================== -->
+      <section class="relative bg-white rounded-3xl shadow-[0_8px_24px_-4px_rgba(48,39,36,0.06),0_2px_6px_-1px_rgba(48,39,36,0.03)] border border-[#EFDFDA] p-8 lg:p-12 overflow-hidden">
+        
+        <!-- Subtle Ambient Tone Glow -->
+        <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-[#F5E5E0]/60 blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 lg:gap-8">
+            <!-- User Portrait Avatar -->
+            <div class="relative shrink-0">
+              <div class="w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-[#722F37] text-white flex items-center justify-center font-headline text-3xl lg:text-4xl font-bold shadow-md border-4 border-[#FFF8F6]">
+                CA
+              </div>
+              <div class="absolute -bottom-1 -right-1 bg-white text-primary p-1 rounded-full shadow-md flex items-center justify-center" title="Explorador Verificado">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+              </div>
+            </div>
+
+            <!-- Bio, Name & Title -->
+            <div class="space-y-2 max-w-2xl">
+              <div class="flex flex-wrap items-center gap-3">
+                <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary tracking-tight" id="profileDisplayName">
+                  Caleb A
+                </h1>
+                <span class="px-3 py-1 rounded-full bg-[#F5E5E0] text-primary text-[11px] font-bold tracking-wider uppercase" id="profileRoleBadge">
+                  COZINHEIRO & EXPLORADOR CULTURAL
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#534343] leading-relaxed" id="profileBioText">
+                Colecionador de tradições culinárias, entusiasta de fermentações lentas e caldos ancestrais. Explorando cozinhas do Japão ao Mediterrâneo com cadernos de campo e receitas vivas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Action: Editar Perfil -->
+          <div class="shrink-0 self-start md:self-center">
+            <button type="button" onclick="openEditProfileModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFF1EC] hover:bg-[#F5E5E0] text-primary border border-[#D8C1C2] transition-all duration-200 active:scale-95 shadow-sm text-xs font-semibold">
+              <span class="material-symbols-outlined text-[17px]">edit</span>
+              <span>Editar Perfil</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Linear Subtle Metric Trackers (Fiel ao Frame 6) -->
+        <div class="relative z-10 mt-8 pt-6 border-t border-[#EFDFDA] flex flex-wrap items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+            <span class="font-headline text-xl sm:text-2xl font-bold text-primary" id="metricSharedCount">12</span>
+            <span class="text-xs text-[#534343]">Pratos Compartilhados</span>
+          </div>
+
+          <div class="h-4 w-px bg-[#EFDFDA] hidden sm:block"></div>
+
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-dourado"></span>
+            <span class="font-headline text-xl sm:text-2xl font-bold text-[#402A00]" id="metricSavedCount">34</span>
+            <span class="text-xs text-[#534343]">Receitas Salvas no Caderno</span>
+          </div>
+
+          <div class="h-4 w-px bg-[#EFDFDA] hidden sm:block"></div>
+
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-verde"></span>
+            <span class="font-headline text-xl sm:text-2xl font-bold text-verde">4</span>
+            <span class="text-xs text-[#534343]">Cadernos Regionais Explorados</span>
+          </div>
+
+          <div class="h-4 w-px bg-[#EFDFDA] hidden lg:block"></div>
+
+          <div class="flex items-center gap-1.5 text-xs text-[#867273]">
+            <span class="material-symbols-outlined text-[16px] text-dourado">auto_stories</span>
+            <span>Caderno Pessoal • Uso Privativo</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- NAVEGAÇÃO ENTRE ABAS: PRATOS VS RECEITAS SALVAS          -->
+      <!-- ======================================================== -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#EFDFDA] pb-4">
+        <div class="flex items-center gap-2 bg-[#FFF1EC] p-1.5 rounded-full border border-[#EFDFDA] w-fit">
+          <button type="button" id="tabSharedBtn" onclick="switchProfileTab('shared')" class="px-5 py-2 rounded-full bg-primary text-white text-xs font-semibold transition-all shadow-sm flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px]">menu_book</span>
+            <span>Meus Pratos Compartilhados</span>
+            <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[10px]" id="tabSharedCounter">12</span>
+          </button>
+          
+          <button type="button" id="tabSavedBtn" onclick="switchProfileTab('saved')" class="px-5 py-2 rounded-full text-[#534343] hover:text-[#221A17] text-xs font-semibold transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px]">bookmark</span>
+            <span>Receitas Salvas</span>
+            <span class="px-2 py-0.5 rounded-full bg-[#F5E5E0] text-[#534343] text-[10px]" id="tabSavedCounter">34</span>
+          </button>
+        </div>
+
+        <div class="text-xs text-[#867273] italic">
+          Caderno vivo atualizado pelo navegador
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- TAB 1: MEUS PRATOS COMPARTILHADOS                        -->
+      <!-- ======================================================== -->
+      <div id="tabSharedContent" class="space-y-8">
+        
+        <!-- Dynamic User Dishes from LocalStorage prepend here -->
+        <div id="dynamicDishesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Card 1: Ramen Caseiro Shoyu (Fiel ao Frame 6) -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-[0_8px_24px_-4px_rgba(48,39,36,0.06),0_2px_6px_-1px_rgba(48,39,36,0.03)] border border-[#EFDFDA] flex flex-col justify-between hover:shadow-lg transition-all group">
+            <div>
+              <div class="relative h-60 w-full overflow-hidden bg-[#FFF1EC]">
+                <img src="../assets/images/ramen-detail-hero.jpg" alt="Ramen Caseiro Shoyu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-xs font-medium shadow-sm">
+                  <span>🇯🇵</span>
+                  <span>Tóquio, Japão</span>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-primary text-xs font-semibold shadow-sm">
+                  <span class="material-symbols-outlined text-[14px]">schedule</span>
+                  <span>4h 30min</span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary/10 text-primary">
+                    Difícil • Tarefa Lenta
+                  </span>
+                  <div class="flex items-center gap-1 text-[#402A00] text-xs font-semibold">
+                    <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span>4.9</span>
+                    <span class="text-[#867273] font-normal">(Nota da Chef)</span>
+                  </div>
+                </div>
+
+                <div class="space-y-1.5">
+                  <h2 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                    Ramen Caseiro Shoyu
+                  </h2>
+                  <p class="text-xs sm:text-sm text-[#534343] line-clamp-2 leading-relaxed">
+                    Caldo artesanal de frango caipira e dashi kombu cozido lentamente por 4 horas, servido com chashu macio e macarrão artesanal alcalino.
+                  </p>
+                </div>
+
+                <!-- Recipe Meta Tags -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Dashi Artesanal</span>
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Ovo Marinado</span>
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Inverno</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 flex items-center justify-between gap-3">
+              <a href="receita.html?id=ramen" class="flex-1 py-2.5 px-4 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] text-primary text-xs font-semibold text-center transition-colors flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">visibility</span>
+                <span>Ver Caderno</span>
+              </a>
+              <a href="compartilhar.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] text-[#534343] hover:text-primary transition-colors" title="Compartilhar nova versão">
+                <span class="material-symbols-outlined text-[18px]">edit_note</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: Sourdough Rústico de Centeio (Fiel ao Frame 6) -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-[0_8px_24px_-4px_rgba(48,39,36,0.06),0_2px_6px_-1px_rgba(48,39,36,0.03)] border border-[#EFDFDA] flex flex-col justify-between hover:shadow-lg transition-all group">
+            <div>
+              <div class="relative h-60 w-full overflow-hidden bg-[#FFF1EC]">
+                <img src="../assets/images/landing-hero-collage.jpg" alt="Sourdough Rústico de Centeio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-xs font-medium shadow-sm">
+                  <span>🇫🇷</span>
+                  <span>Alsácia, França</span>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-primary text-xs font-semibold shadow-sm">
+                  <span class="material-symbols-outlined text-[14px]">schedule</span>
+                  <span>18h Fermentação</span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#EDBF75]/30 text-[#402A00]">
+                    Médio • Maturação Fria
+                  </span>
+                  <div class="flex items-center gap-1 text-[#402A00] text-xs font-semibold">
+                    <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span>5.0</span>
+                    <span class="text-[#867273] font-normal">(Nota da Chef)</span>
+                  </div>
+                </div>
+
+                <div class="space-y-1.5">
+                  <h2 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                    Sourdough Rústico de Centeio
+                  </h2>
+                  <p class="text-xs sm:text-sm text-[#534343] line-clamp-2 leading-relaxed">
+                    Pão de fermentação natural de 18 horas em baixa temperatura, combinando farinha francesa T65 com centeio moído em pedra biológica.
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Levain 4 Anos</span>
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">78% Hidratação</span>
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Padaria Viva</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 flex items-center justify-between gap-3">
+              <a href="receitas.html" class="flex-1 py-2.5 px-4 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] text-primary text-xs font-semibold text-center transition-colors flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">visibility</span>
+                <span>Ver Caderno</span>
+              </a>
+              <a href="compartilhar.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] text-[#534343] hover:text-primary transition-colors" title="Editar">
+                <span class="material-symbols-outlined text-[18px]">edit_note</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: Ceviche Clássico com Leche de Tigre (Fiel ao Frame 6) -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-[0_8px_24px_-4px_rgba(48,39,36,0.06),0_2px_6px_-1px_rgba(48,39,36,0.03)] border border-[#EFDFDA] flex flex-col justify-between hover:shadow-lg transition-all group">
+            <div>
+              <div class="relative h-60 w-full overflow-hidden bg-[#FFF1EC]">
+                <img src="../assets/images/comunidade-tartar.jpg" alt="Ceviche Clássico" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-xs font-medium shadow-sm">
+                  <span>🇵🇪</span>
+                  <span>Lima, Peru</span>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-primary text-xs font-semibold shadow-sm">
+                  <span class="material-symbols-outlined text-[14px]">schedule</span>
+                  <span>20min</span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#CEE5D5] text-[#34483C]">
+                    Fácil • Marinado a Frio
+                  </span>
+                  <div class="flex items-center gap-1 text-[#402A00] text-xs font-semibold">
+                    <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span>4.8</span>
+                    <span class="text-[#867273] font-normal">(Nota da Chef)</span>
+                  </div>
+                </div>
+
+                <div class="space-y-1.5">
+                  <h2 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                    Ceviche Clássico com Leche de Tigre
+                  </h2>
+                  <p class="text-xs sm:text-sm text-[#534343] line-clamp-2 leading-relaxed">
+                    Robalo selvagem fresco curado no limão com pasta de ají limo, coentro selvagem, milho choclo tostado e batata-doce caramelizada.
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Peixe Selvagem</span>
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Ají Limo</span>
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Fresco</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 flex items-center justify-between gap-3">
+              <a href="receitas.html" class="flex-1 py-2.5 px-4 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] text-primary text-xs font-semibold text-center transition-colors flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">visibility</span>
+                <span>Ver Caderno</span>
+              </a>
+              <a href="compartilhar.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] text-[#534343] hover:text-primary transition-colors" title="Editar">
+                <span class="material-symbols-outlined text-[18px]">edit_note</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4: Cacio e Pepe Tradicional (Fiel ao Frame 6) -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-[0_8px_24px_-4px_rgba(48,39,36,0.06),0_2px_6px_-1px_rgba(48,39,36,0.03)] border border-[#EFDFDA] flex flex-col justify-between hover:shadow-lg transition-all group">
+            <div>
+              <div class="relative h-60 w-full overflow-hidden bg-[#FFF1EC]">
+                <img src="../assets/images/comunidade-gnocchi.jpg" alt="Cacio e Pepe Tradicional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-xs font-medium shadow-sm">
+                  <span>🇮🇹</span>
+                  <span>Roma, Itália</span>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-primary text-xs font-semibold shadow-sm">
+                  <span class="material-symbols-outlined text-[14px]">schedule</span>
+                  <span>25min</span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#CEE5D5] text-[#34483C]">
+                    Fácil • Técnica Pura
+                  </span>
+                  <div class="flex items-center gap-1 text-[#402A00] text-xs font-semibold">
+                    <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span>4.7</span>
+                    <span class="text-[#867273] font-normal">(Nota da Chef)</span>
+                  </div>
+                </div>
+
+                <div class="space-y-1.5">
+                  <h2 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                    Cacio e Pepe Tradicional
+                  </h2>
+                  <p class="text-xs sm:text-sm text-[#534343] line-clamp-2 leading-relaxed">
+                    A alquimia perfeita entre Pecorino Romano DOP maturado 24 meses, pimenta-do-reino tostada na hora e a água rica em amido do espaguete fresco.
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Pecorino DOP</span>
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Massa Fresca</span>
+                  <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Express</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 flex items-center justify-between gap-3">
+              <a href="receitas.html" class="flex-1 py-2.5 px-4 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] text-primary text-xs font-semibold text-center transition-colors flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">visibility</span>
+                <span>Ver Caderno</span>
+              </a>
+              <a href="compartilhar.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] text-[#534343] hover:text-primary transition-colors" title="Editar">
+                <span class="material-symbols-outlined text-[18px]">edit_note</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 5 Especial: + Adicionar Nova Receita (Fiel ao Frame 6) -->
+          <a href="compartilhar.html" class="group bg-[#FFF1EC]/50 hover:bg-[#FFF1EC] rounded-2xl p-8 flex flex-col items-center justify-center text-center transition-all duration-300 min-h-[380px] border-2 border-dashed border-[#D8C1C2] hover:border-primary">
+            <div class="w-16 h-16 rounded-full bg-white group-hover:bg-primary group-hover:text-white flex items-center justify-center text-primary transition-all duration-300 mb-4 shadow-sm">
+              <span class="material-symbols-outlined text-[32px]">add</span>
+            </div>
+            <h3 class="font-headline text-xl font-semibold text-[#221A17] mb-2 group-hover:text-primary transition-colors">
+              Adicionar Nova Receita
+            </h3>
+            <p class="text-xs text-[#534343] max-w-xs leading-relaxed">
+              Registre anotações de terroir, proporções exatas de ingredientes e segredos da sua última experiência à mesa.
+            </p>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- TAB 2: RECEITAS SALVAS (FAVORITOS DO NAVEGADOR)           -->
+      <!-- ======================================================== -->
+      <div id="tabSavedContent" class="hidden space-y-6">
+        <div id="savedRecipesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Renderizado dinamicamente via JavaScript com base em localStorage -->
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- EDITORIAL PHILOSOPHY QUOTE BANNER (Fiel ao Frame 6)       -->
+      <!-- ======================================================== -->
+      <section class="mt-12 p-8 sm:p-12 rounded-3xl bg-[#FFF1EC] border border-[#EFDFDA] text-center max-w-4xl mx-auto space-y-4">
+        <span class="material-symbols-outlined text-dourado text-[32px]">format_quote</span>
+        <blockquote class="font-headline text-xl sm:text-2xl lg:text-[26px] text-primary italic leading-relaxed">
+          “Cozinhar é a forma mais duradoura de memória cartográfica. Cada caldo registrado é uma viagem que nunca se encerra.”
+        </blockquote>
+        <p class="text-xs font-bold tracking-widest text-[#534343] uppercase">
+          MARINA VIEIRA • DIÁRIO GASTRONÔMICO MAVORY
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: EDITAR PERFIL                                     -->
+  <!-- ======================================================== -->
+  <div id="editProfileModal" class="hidden fixed inset-0 z-50 bg-[#302724]/70 backdrop-blur-sm items-center justify-center p-4">
+    <div class="w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#EFDFDA] animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-[#EFDFDA] bg-[#FFF8F6]">
+        <h2 class="font-headline text-xl text-primary font-semibold">Editar Perfil Culinário</h2>
+        <button type="button" onclick="closeEditProfileModal()" class="w-8 h-8 rounded-full hover:bg-[#F5E5E0] text-[#534343] flex items-center justify-center">✕</button>
+      </div>
+      <form id="editProfileForm" onsubmit="handleSaveProfile(event)" class="p-6 space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#221A17] mb-1">Nome de Exibição</label>
+          <input type="text" id="editNameInput" required value="Caleb A" class="w-full h-11 px-4 rounded-xl bg-[#FFF1EC] border border-[#EFDFDA] text-sm text-[#221A17] focus:outline-none focus:border-primary">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#221A17] mb-1">Título / Função Gastronômica</label>
+          <input type="text" id="editRoleInput" required value="COZINHEIRO & EXPLORADOR CULTURAL" class="w-full h-11 px-4 rounded-xl bg-[#FFF1EC] border border-[#EFDFDA] text-sm text-[#221A17] focus:outline-none focus:border-primary">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-[#221A17] mb-1">Biografia / Caderno Pessoal</label>
+          <textarea id="editBioInput" rows="3" required class="w-full p-4 rounded-xl bg-[#FFF1EC] border border-[#EFDFDA] text-sm text-[#221A17] focus:outline-none focus:border-primary resize-none">Colecionador de tradições culinárias, entusiasta de fermentações lentas e caldos ancestrais. Explorando cozinhas do Japão ao Mediterrâneo com cadernos de campo e receitas vivas.</textarea>
+        </div>
+        <div class="flex items-center justify-end gap-3 pt-2">
+          <button type="button" onclick="closeEditProfileModal()" class="px-5 py-2.5 rounded-full border border-[#D8C1C2] text-xs font-semibold hover:bg-[#FFF1EC]">Cancelar</button>
+          <button type="submit" class="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white text-xs font-semibold shadow-md">Salvar Alterações</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- FOOTER GLOBAL                              -->
+  <!-- ========================================== -->
+  <footer class="w-full bg-[#FFF1EC] border-t border-[#EFDFDA] mt-16">
+    <div class="max-w-[1640px] mx-auto px-6 lg:px-12 pt-14 pb-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12">
+        <div class="md:col-span-4 space-y-3">
+          <img src="../assets/images/logo.png" alt="Mavory" class="h-8 w-auto object-contain mavory-logo">
+          <p class="text-xs text-[#534343] max-w-sm leading-relaxed">
+            Um compêndio de narrativas culinárias, tradições de terroir e cadernos de campo dedicados aos amantes da autêntica gastronomia global.
+          </p>
+        </div>
+        <div class="md:col-span-4 space-y-3">
+          <span class="text-xs font-bold text-dourado uppercase tracking-wider block">Mapa Gastronômico</span>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="receitas.html" class="text-[#534343] hover:text-primary transition-colors">Caderno de Receitas</a>
+            <a href="descobrir.html" class="text-[#534343] hover:text-primary transition-colors">Terroirs &amp; Regiões</a>
+            <a href="descobrir.html" class="text-[#534343] hover:text-primary transition-colors">Guia de Produtores</a>
+            <a href="comunidade.html" class="text-[#534343] hover:text-primary transition-colors">Crônicas e Ensaios</a>
+          </div>
+        </div>
+        <div class="md:col-span-4 space-y-3">
+          <span class="text-xs font-bold text-dourado uppercase tracking-wider block">Notas do Chef</span>
+          <p class="text-xs text-[#534343]">Receba quinzenalmente ensaios de culinária artesanal, viagens de descoberta e receitas originais.</p>
+          <form class="flex items-center gap-2" onsubmit="event.preventDefault(); alert('Obrigado por assinar as Notas do Chef!');">
+            <input type="email" required placeholder="Seu melhor e-mail" class="flex-1 h-10 px-4 rounded-xl bg-white border border-[#D8C1C2] text-xs focus:outline-none focus:border-primary">
+            <button type="submit" class="h-10 px-5 rounded-xl bg-primary hover:bg-primary-dark text-white text-xs font-semibold transition-all">Assinar</button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-6 border-t border-[#EFDFDA] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#867273]">
+        <p>Mavory © 2025 • Exploração Gastronômica Mundial</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-primary transition-colors">Manifesto Editorial</a>
+          <a href="#" class="hover:text-primary transition-colors">Privacidade</a>
+          <a href="#" class="hover:text-primary transition-colors">Acervo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DE PERFIL & SINCRONIZAÇÃO DE DADOS -->
+  <script>
+    // Carrega dados salvos do usuário
+    function loadUserProfile() {
+      try {
+        const user = JSON.parse(localStorage.getItem('mavory_current_user')) || {
+          name: 'Caleb A',
+          role: 'COZINHEIRO & EXPLORADOR CULTURAL',
+          bio: 'Colecionador de tradições culinárias, entusiasta de fermentações lentas e caldos ancestrais. Explorando cozinhas do Japão ao Mediterrâneo com cadernos de campo e receitas vivas.'
+        };
+        document.getElementById('profileDisplayName').textContent = user.name || 'Caleb A';
+        document.getElementById('headerProfileName').textContent = user.name || 'Caleb A';
+        document.getElementById('profileRoleBadge').textContent = user.role || 'COZINHEIRO & EXPLORADOR CULTURAL';
+        document.getElementById('profileBioText').textContent = user.bio || '';
+        document.getElementById('editNameInput').value = user.name || 'Caleb A';
+        document.getElementById('editRoleInput').value = user.role || 'COZINHEIRO & EXPLORADOR CULTURAL';
+        document.getElementById('editBioInput').value = user.bio || '';
+      } catch (_) {}
+    }
+
+    function openEditProfileModal() {
+      const modal = document.getElementById('editProfileModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeEditProfileModal() {
+      const modal = document.getElementById('editProfileModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleSaveProfile(e) {
+      e.preventDefault();
+      const name = document.getElementById('editNameInput').value.trim();
+      const role = document.getElementById('editRoleInput').value.trim();
+      const bio = document.getElementById('editBioInput').value.trim();
+
+      const user = { name, role, bio };
+      localStorage.setItem('mavory_current_user', JSON.stringify(user));
+
+      loadUserProfile();
+      closeEditProfileModal();
+    }
+
+    // Alternância de Abas (Pratos vs Receitas Salvas)
+    function switchProfileTab(tab) {
+      const sharedBtn = document.getElementById('tabSharedBtn');
+      const savedBtn = document.getElementById('tabSavedBtn');
+      const sharedContent = document.getElementById('tabSharedContent');
+      const savedContent = document.getElementById('tabSavedContent');
+
+      if (tab === 'saved') {
+        sharedBtn.className = 'px-5 py-2 rounded-full text-[#534343] hover:text-[#221A17] text-xs font-semibold transition-all flex items-center gap-2';
+        savedBtn.className = 'px-5 py-2 rounded-full bg-primary text-white text-xs font-semibold transition-all shadow-sm flex items-center gap-2';
+        sharedContent.classList.add('hidden');
+        savedContent.classList.remove('hidden');
+        renderSavedRecipes();
+      } else {
+        savedBtn.className = 'px-5 py-2 rounded-full text-[#534343] hover:text-[#221A17] text-xs font-semibold transition-all flex items-center gap-2';
+        sharedBtn.className = 'px-5 py-2 rounded-full bg-primary text-white text-xs font-semibold transition-all shadow-sm flex items-center gap-2';
+        savedContent.classList.add('hidden');
+        sharedContent.classList.remove('hidden');
+      }
+    }
+
+    // Renderiza pratos dinâmicos publicados pelo usuário em compartilhar.html
+    function loadDynamicPosts() {
+      try {
+        const posts = JSON.parse(localStorage.getItem('mavory_posts_v1') || '[]');
+        const container = document.getElementById('dynamicDishesContainer');
+        const metricShared = document.getElementById('metricSharedCount');
+        const tabCounter = document.getElementById('tabSharedCounter');
+
+        const totalCount = 12 + posts.length;
+        if (metricShared) metricShared.textContent = totalCount;
+        if (tabCounter) tabCounter.textContent = totalCount;
+
+        if (posts.length > 0) {
+          // Renderiza novos pratos antes do primeiro card padrão
+          posts.forEach(post => {
+            const article = document.createElement('article');
+            article.className = 'bg-white rounded-2xl overflow-hidden shadow-[0_8px_24px_-4px_rgba(48,39,36,0.06),0_2px_6px_-1px_rgba(48,39,36,0.03)] border-2 border-primary/20 flex flex-col justify-between hover:shadow-lg transition-all group';
+            article.innerHTML = `
+              <div>
+                <div class="relative h-60 w-full overflow-hidden bg-[#FFF1EC]">
+                  <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-white text-xs font-semibold shadow-sm">
+                    <span>✨</span>
+                    <span>Compartilhado por Você</span>
+                  </div>
+                  <div class="absolute top-3 right-3 flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-primary text-xs font-semibold shadow-sm">
+                    <span class="material-symbols-outlined text-[14px]">schedule</span>
+                    <span>${post.duration || 'Recém-saído do fogo'}</span>
+                  </div>
+                </div>
+
+                <div class="p-6 space-y-4">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary/10 text-primary">
+                      ${post.difficulty || 'Preparo Pessoal'}
+                    </span>
+                    <div class="flex items-center gap-1 text-[#402A00] text-xs font-semibold">
+                      <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                      <span>5.0</span>
+                      <span class="text-[#867273] font-normal">(Seu Prato)</span>
+                    </div>
+                  </div>
+
+                  <div class="space-y-1.5">
+                    <h2 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                      ${post.title}
+                    </h2>
+                    <p class="text-xs sm:text-sm text-[#534343] line-clamp-2 leading-relaxed">
+                      ${post.description || 'Preparo artesanal registrado no caderno coletivo Mavory.'}
+                    </p>
+                  </div>
+
+                  <div class="flex flex-wrap gap-1.5 pt-1">
+                    <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-primary text-[11px] font-semibold">Receita Autoral</span>
+                    <span class="px-2 py-0.5 rounded-md bg-[#FFF1EC] text-[#534343] text-[11px] font-medium">Caderno Coletivo</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-6 pt-0 flex items-center justify-between gap-3">
+                <a href="comunidade.html" class="flex-1 py-2.5 px-4 rounded-xl bg-primary text-white text-xs font-semibold text-center transition-colors flex items-center justify-center gap-1.5 shadow-sm hover:bg-primary-dark">
+                  <span class="material-symbols-outlined text-[16px]">visibility</span>
+                  <span>Ver na Comunidade</span>
+                </a>
+              </div>
+            `;
+            container.insertBefore(article, container.firstChild);
+          });
+        }
+      } catch (_) {}
+    }
+
+    // Renderiza Receitas Salvas
+    function renderSavedRecipes() {
+      const container = document.getElementById('savedRecipesGrid');
+      const favorites = JSON.parse(localStorage.getItem('mavory_favorites_v1') || '["ramen", "cacio", "boeuf"]');
+      
+      const recipeData = {
+        ramen: {
+          title: 'Ramen Tonkotsu Artesanal & O Caldo dos Cem Anos',
+          region: 'Tóquio, Japão',
+          time: '2h 30m',
+          difficulty: 'Médio',
+          rating: '4.9',
+          image: '../assets/images/ramen-detail-hero.jpg',
+          desc: 'Uma imersão na técnica de emulsão lenta dos ossos de porco com aromáticos tostados e chashu macio.'
+        },
+        cacio: {
+          title: 'Cacio e Pepe Tradicional',
+          region: 'Roma, Itália',
+          time: '20 min',
+          difficulty: 'Fácil',
+          rating: '4.8',
+          image: '../assets/images/comunidade-gnocchi.jpg',
+          desc: 'A alquimia romana de três ingredientes: Tonnarelli artesanal, Pecorino Romano DOP e pimenta preta tostada.'
+        },
+        boeuf: {
+          title: 'Boeuf Bourguignon de Vinhedo',
+          region: 'Borgonha, França',
+          time: '3h 30m',
+          difficulty: 'Médio',
+          rating: '4.9',
+          image: '../assets/images/comunidade-galette.jpg',
+          desc: 'Ensopado francês de carne bovina marinada e cozida lentamente com vinho tinto Pinot Noir e cogumelos.'
+        },
+        ceviche: {
+          title: 'Ceviche Clássico Costeiro',
+          region: 'Lima, Peru',
+          time: '20 min',
+          difficulty: 'Fácil',
+          rating: '4.8',
+          image: '../assets/images/comunidade-tartar.jpg',
+          desc: 'Robalo fresco cortado em cubos curado em leche de tigre com milho choclo e batata-doce.'
+        }
+      };
+
+      container.innerHTML = '';
+      const keys = favorites.length > 0 ? favorites : ['ramen', 'cacio', 'boeuf'];
+
+      keys.forEach(key => {
+        const item = recipeData[key] || recipeData.ramen;
+        const card = document.createElement('article');
+        card.className = 'bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-md transition-shadow group';
+        card.innerHTML = `
+          <div>
+            <div class="relative h-56 w-full overflow-hidden bg-[#FFF1EC]">
+              <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-xs font-medium shadow-sm">
+                <span>📍</span>
+                <span>${item.region}</span>
+              </div>
+              <div class="absolute top-3 right-3 flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-primary text-xs font-semibold shadow-sm">
+                <span class="material-symbols-outlined text-[14px]">schedule</span>
+                <span>${item.time}</span>
+              </div>
+            </div>
+            <div class="p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#F5E5E0] text-primary">
+                  ${item.difficulty}
+                </span>
+                <span class="text-xs font-semibold text-[#402A00]">★ ${item.rating}</span>
+              </div>
+              <h3 class="font-headline text-lg font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                ${item.title}
+              </h3>
+              <p class="text-xs text-[#534343] line-clamp-2">
+                ${item.desc}
+              </p>
+            </div>
+          </div>
+          <div class="p-5 pt-0 flex items-center justify-between gap-3">
+            <a href="receita.html?id=${key}" class="flex-1 py-2 px-4 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] text-primary text-xs font-semibold text-center transition-colors">
+              Abrir Receita
+            </a>
+            <button type="button" onclick="removeFavorite('${key}')" class="p-2 rounded-xl text-primary hover:bg-[#FFF1EC]" title="Remover dos Salvos">
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function removeFavorite(key) {
+      let favs = JSON.parse(localStorage.getItem('mavory_favorites_v1') || '[]');
+      favs = favs.filter(k => k !== key);
+      localStorage.setItem('mavory_favorites_v1', JSON.stringify(favs));
+      renderSavedRecipes();
+      const count = document.getElementById('metricSavedCount');
+      const tabCount = document.getElementById('tabSavedCounter');
+      if (count) count.textContent = 34 + favs.length;
+      if (tabCount) tabCount.textContent = 34 + favs.length;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadUserProfile();
+      loadDynamicPosts();
+    });
+  </script>
+</body>
+</html>

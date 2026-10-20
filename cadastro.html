@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar Cadastro — Mavory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="bg-[#FFF8F6] text-[#221A17] font-['Plus_Jakarta_Sans',sans-serif] min-h-screen flex flex-col justify-between p-6 antialiased selection:bg-[#722F37] selection:text-white">
+
+  <!-- Top Bar Navigation (Fiel ao MacBook Pro 16_ - 11.png) -->
+  <header class="w-full max-w-[1640px] mx-auto flex items-center justify-between py-2">
+    <a href="inicio.html" class="flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#534343] hover:text-[#722F37] transition-colors uppercase">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>
+      <span>Mavory</span>
+    </a>
+    <a href="inicio.html" class="font-['Playfair_Display'] text-xl font-semibold text-[#722F37] tracking-wide">
+      Mavory
+    </a>
+    <div class="w-16"></div>
+  </header>
+
+  <!-- Centered Register / Onboarding Card -->
+  <main class="w-full flex-1 flex flex-col items-center justify-center py-6">
+    
+    <!-- Top Pill Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FBEAE5] text-[#722F37] text-xs font-bold uppercase tracking-wider mb-4 border border-[#EFDFDA]">
+      <span class="w-2 h-2 rounded-full bg-[#722F37]"></span>
+      <span>Etapa Final • Perfil Culinário</span>
+    </div>
+
+    <div class="w-full max-w-[560px] bg-white rounded-3xl shadow-[0_12px_40px_rgba(48,39,36,0.06)] border border-[#EFDFDA] p-8 sm:p-10 space-y-6">
+      
+      <!-- Icone Circular Mavory e Títulos -->
+      <div class="flex flex-col items-center text-center space-y-2">
+        <div class="w-14 h-14 rounded-full bg-[#FFF1EC] border border-[#EFDFDA] flex items-center justify-center p-2.5 shadow-sm">
+          <img src="../assets/images/logo.png" alt="Mavory" class="w-full h-full object-contain">
+        </div>
+        <h1 class="font-['Playfair_Display'] text-2xl sm:text-[28px] font-semibold text-[#722F37] leading-tight">
+          Vamos finalizar seu cadastro!
+        </h1>
+        <p class="text-xs text-[#534343] leading-relaxed max-w-sm">
+          Faltam apenas alguns dados para criar o seu perfil gastronômico e personalizar sua experiência no caderno Mavory.
+        </p>
+      </div>
+
+      <!-- Formulário de Finalização de Cadastro -->
+      <form id="cadastroForm" onsubmit="handleCadastroSubmit(event)" class="space-y-5">
+        
+        <!-- Bloco: Foto de perfil (Opcional) -->
+        <div class="p-4 rounded-2xl bg-[#FFF1EC] border border-[#EFDFDA] flex items-center gap-4">
+          <div class="relative w-14 h-14 rounded-full bg-[#FBEAE5] flex items-center justify-center text-[#722F37] shrink-0 overflow-hidden shadow-inner">
+            <img id="avatarPreview" src="" alt="Avatar" class="hidden w-full h-full object-cover">
+            <span id="avatarDefaultIcon" class="material-symbols-outlined text-[26px]">add_a_photo</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#221A17]">Foto de perfil</span>
+              <span class="text-[10px] uppercase font-bold text-[#867273] bg-white px-2 py-0.5 rounded-full border border-[#EFDFDA]">Opcional</span>
+            </div>
+            <p class="text-[11px] text-[#534343] mt-0.5 leading-snug">
+              Adicione uma imagem para ser reconhecido nas resenhas e cadernos compartilhados.
+            </p>
+            <input type="file" id="avatarFileInput" accept="image/*" class="hidden" onchange="previewAvatar(event)">
+            <button type="button" onclick="document.getElementById('avatarFileInput').click()" class="mt-1.5 inline-flex items-center gap-1 text-xs font-semibold text-[#722F37] hover:underline">
+              <span class="material-symbols-outlined text-sm">upload</span>
+              <span>Escolher imagem</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Campos em Duas Colunas: Nome de Usuário e Nome de Exibição -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Nome de Usuário -->
+          <div class="space-y-1">
+            <label for="usernameInput" class="block text-xs font-semibold text-[#221A17]">Nome de usuário *</label>
+            <div class="relative flex items-center">
+              <span class="absolute left-3.5 text-[#867273] text-xs font-bold">@</span>
+              <input 
+                type="text" 
+                id="usernameInput" 
+                required 
+                placeholder="ex: helenarizzo" 
+                value="helenarizzo"
+                class="w-full pl-8 pr-3 py-2.5 rounded-xl bg-[#FFF1EC] text-xs text-[#221A17] placeholder:text-[#867273] border border-transparent focus:border-[#722F37] focus:bg-white focus:outline-none transition-all">
+            </div>
+            <p class="text-[10px] text-[#867273]">Seu identificador único na comunidade culinária</p>
+          </div>
+
+          <!-- Nome de Exibição -->
+          <div class="space-y-1">
+            <label for="displayNameInput" class="block text-xs font-semibold text-[#221A17]">Nome de exibição *</label>
+            <div class="relative flex items-center">
+              <span class="material-symbols-outlined absolute left-3 text-[#867273] text-[16px]">badge</span>
+              <input 
+                type="text" 
+                id="displayNameInput" 
+                required 
+                placeholder="ex: Helena Rizzo (Chef)" 
+                value="Helena Rizzo (Chef)"
+                class="w-full pl-8 pr-3 py-2.5 rounded-xl bg-[#FFF1EC] text-xs text-[#221A17] placeholder:text-[#867273] border border-transparent focus:border-[#722F37] focus:bg-white focus:outline-none transition-all">
+            </div>
+            <p class="text-[10px] text-[#867273]">Como você quer ser chamado pelos gourmands</p>
+          </div>
+        </div>
+
+        <!-- Breve Descrição -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-between">
+            <label for="bioInput" class="block text-xs font-semibold text-[#221A17]">Breve descrição</label>
+            <span class="text-[10px] uppercase font-bold text-[#867273]">Opcional</span>
+          </div>
+          <div class="relative">
+            <textarea 
+              id="bioInput" 
+              rows="3" 
+              maxlength="240"
+              oninput="updateCharCount(this)"
+              placeholder="Compartilhe suas paixões culinárias, terroirs preferidos ou especialidades do fogão..." 
+              class="w-full p-3 rounded-xl bg-[#FFF1EC] text-xs text-[#221A17] placeholder:text-[#867273] border border-transparent focus:border-[#722F37] focus:bg-white focus:outline-none transition-all resize-none">Pesquisadora de fermentações lentas, confeitaria rústica da serra e ingredientes nativos brasileiros.</textarea>
+            <span id="charCount" class="absolute bottom-2.5 right-3 text-[10px] text-[#867273]">101/240</span>
+          </div>
+          <p class="text-[10px] text-[#867273]">Aparecerá no topo do seu perfil e em suas crônicas gastronômicas.</p>
+        </div>
+
+        <!-- Botão Concluir Cadastro -->
+        <button 
+          type="submit" 
+          id="concluirBtn"
+          class="w-full py-3.5 px-4 rounded-xl bg-[#722F37] hover:bg-[#561922] text-white font-body text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.99] mt-3">
+          <span>Concluir cadastro</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+
+        <!-- Voltar para Login -->
+        <div class="text-center pt-1">
+          <a href="login.html" class="inline-flex items-center gap-1 text-xs text-[#534343] hover:text-[#722F37] transition-colors font-medium">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            <span>Voltar para entrar na conta</span>
+          </a>
+        </div>
+
+        <!-- Rodapé do Card -->
+        <div class="pt-4 border-t border-[#EFDFDA] flex items-center justify-between text-[10px] font-bold tracking-wider text-[#867273] uppercase">
+          <span>Mavory Editorial</span>
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-xs">menu_book</span>
+            <span>Caderno &amp; Terroir</span>
+          </span>
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="w-full text-center py-4">
+    <p class="text-[11px] text-[#867273]">
+      © Mavory Journal &amp; Gastronomia. Todos os direitos reservados.
+    </p>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+  <script>
+    let avatarDataUrl = '';
+
+    function previewAvatar(e) {
+      const file = e.target.files && e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          avatarDataUrl = evt.target.result;
+          const img = document.getElementById('avatarPreview');
+          const defaultIcon = document.getElementById('avatarDefaultIcon');
+          img.src = avatarDataUrl;
+          img.classList.remove('hidden');
+          defaultIcon.classList.add('hidden');
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function updateCharCount(el) {
+      document.getElementById('charCount').textContent = `${el.value.length}/240`;
+    }
+
+    function handleCadastroSubmit(e) {
+      e.preventDefault();
+      const username = document.getElementById('usernameInput').value.trim();
+      const displayName = document.getElementById('displayNameInput').value.trim();
+      const bio = document.getElementById('bioInput').value.trim();
+      const btn = document.getElementById('concluirBtn');
+
+      btn.disabled = true;
+      btn.innerHTML = `<span class="material-symbols-outlined text-sm animate-spin">refresh</span><span>Registrando perfil...</span>`;
+
+      setTimeout(() => {
+        const newUser = {
+          username: username,
+          name: displayName,
+          bio: bio,
+          avatar: avatarDataUrl || '../assets/images/logo.png',
+          isLoggedIn: true,
+          registeredAt: new Date().toISOString()
+        };
+        localStorage.setItem('mavory_current_user', JSON.stringify(newUser));
+        window.location.href = 'boas-vindas.html';
+      }, 700);
+    }
+  </script>
+</body>
+</html>

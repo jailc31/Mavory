@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mavory — Atlas Gastronômico Global & Terroirs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#722F37",
+            "primary-dark": "#561922",
+            "primary-container": "#722F37",
+            "on-primary": "#ffffff",
+            creme: "#FFF8F6",
+            "creme-dark": "#F7EFE2",
+            surface: "#FFF8F6",
+            "surface-low": "#FFF1EC",
+            "surface-high": "#F5E5E0",
+            "surface-highest": "#EFDFDA",
+            dourado: "#C49A54",
+            "tertiary-container": "#402A00",
+            verde: "#34483C",
+            "secondary-container": "#CEE5D5",
+            marrom: "#302724",
+            "on-surface": "#221A17",
+            "on-surface-variant": "#534343",
+            outline: "#867273",
+            "outline-variant": "#D8C1C2"
+          },
+          fontFamily: {
+            headline: ["Playfair Display", "serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="bg-surface font-body text-[#221A17] antialiased selection:bg-primary selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- Floating Switcher: Figma Tela 4 (Autenticado) vs Tela 8 (Visitante) -->
+  <aside aria-label="Controle de visualização do protótipo" class="fixed bottom-4 right-4 z-50 bg-[#302724]/90 backdrop-blur-md text-white text-xs px-3.5 py-2 rounded-full shadow-2xl border border-white/10 flex items-center gap-2">
+    <span class="text-creme/70 font-medium hidden sm:inline">Visualização Figma:</span>
+    <button type="button" id="btnModeAuth" onclick="switchAtlasMode('auth')" class="px-2.5 py-1 rounded-full bg-[#722F37] text-white font-semibold transition-all">Tela 4 (Autenticado)</button>
+    <button type="button" id="btnModeVisitor" onclick="switchAtlasMode('visitor')" class="px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium transition-all">Tela 8 (Visitante)</button>
+  </aside>
+
+  <!-- ========================================== -->
+  <!-- HEADER GLOBAL                              -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-xl border-b border-[#EFDFDA]">
+    <!-- Top Visitor Banner (Only visible in Visitor mode) -->
+    <div id="visitorTopBanner" class="hidden w-full bg-[#FFF1EC] border-b border-[#EFDFDA] py-1.5 px-6 text-center text-xs text-[#534343] flex items-center justify-between">
+      <div class="flex items-center gap-2 mx-auto">
+        <span class="w-1.5 h-1.5 rounded-full bg-dourado"></span>
+        <span class="uppercase tracking-wide font-medium">Modo Visitante — Faça login para salvar receitas no seu caderno e interagir com a comunidade</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-3 shrink-0">
+        <a href="login.html" class="text-primary font-semibold hover:underline">Entrar</a>
+        <a href="cadastro.html" class="px-3 py-1 rounded-full bg-primary text-white text-[11px] font-semibold hover:bg-primary-dark transition-all">Criar conta</a>
+      </div>
+    </div>
+
+    <div class="h-20 max-w-[1640px] mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="inicio.html" class="flex items-center group">
+          <img src="../assets/images/logo.png" alt="Mavory" class="h-9 w-auto object-contain mavory-logo">
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-2">
+        <a href="inicio.html" class="px-4 py-2 text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Início</a>
+        <a href="descobrir.html" class="px-4 py-2 text-sm font-semibold text-primary bg-[#FBEAE5] rounded-lg">Descobrir</a>
+        <a href="receitas.html" class="px-4 py-2 text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Receitas</a>
+        <a href="comunidade.html" class="px-4 py-2 text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Comunidade</a>
+        <a href="compartilhar.html" class="px-4 py-2 text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Compartilhar</a>
+      </nav>
+
+      <!-- Right Header Actions (Auth vs Visitor) -->
+      <div class="flex items-center gap-3">
+        <div id="headerAuthArea" class="flex items-center gap-3">
+          <a href="perfil.html" class="flex items-center gap-2 group p-1 pr-3 rounded-full hover:bg-[#F5E5E0] transition-colors" title="Meu Perfil">
+            <div class="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">
+              CA
+            </div>
+            <span class="text-xs font-semibold text-[#221A17] hidden sm:inline">Caleb A</span>
+          </a>
+        </div>
+        <div id="headerVisitorArea" class="hidden flex items-center gap-2">
+          <a href="login.html" class="px-3 py-1.5 text-xs font-semibold text-[#534343] hover:text-primary transition-colors">Entrar</a>
+          <a href="cadastro.html" class="px-4 py-2 rounded-full bg-primary hover:bg-primary-dark text-white text-xs font-semibold transition-all shadow-sm">Criar conta</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 w-full">
+
+    <!-- ======================================================== -->
+    <!-- VIEW 1: AUTHENTICATED MODE (Figma Screen 4 - 100% FIEL)   -->
+    <!-- ======================================================== -->
+    <div id="viewAtlasAuth" class="w-full">
+      
+      <!-- Discovery Hero Search Section -->
+      <section class="relative w-full overflow-hidden bg-gradient-to-b from-[#FFF1EC] via-surface to-surface pb-12 pt-8">
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[720px] h-[340px] bg-primary/10 blur-3xl pointer-events-none rounded-full"></div>
+        <div class="relative max-w-[1640px] mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E5E0] text-primary text-[11px] font-bold tracking-wider uppercase mb-4">
+            <span class="material-symbols-outlined text-[16px]">travel_explore</span>
+            <span>ATLAS GASTRONÔMICO GLOBAL</span>
+          </div>
+
+          <h1 class="font-headline text-3xl sm:text-5xl lg:text-[46px] font-semibold text-[#221A17] max-w-3xl tracking-tight mb-3">
+            Onde o seu paladar deseja viajar hoje?
+          </h1>
+
+          <p class="text-sm sm:text-base text-[#534343] max-w-2xl mb-8 leading-relaxed">
+            Explore heranças culinárias, técnicas milenares e ingredientes de terroir catalogados por chefs e viajantes do mundo inteiro.
+          </p>
+
+          <!-- Search Input Bar (Fiel ao Frame 4) -->
+          <div class="w-full max-w-3xl">
+            <form class="relative flex items-center bg-white rounded-full p-2 shadow-[0_12px_36px_-6px_rgba(48,39,36,0.08)] border border-[#EFDFDA] focus-within:border-primary transition-all" id="atlasSearchForm" onsubmit="event.preventDefault(); executarBusca();">
+              <div class="flex items-center pl-4 text-primary">
+                <span class="material-symbols-outlined text-[24px]">search</span>
+              </div>
+              <input type="text" id="mainSearchInput" placeholder="Buscar por prato, ingrediente, país ou técnica culinária..." class="flex-1 bg-transparent px-4 py-2.5 text-xs sm:text-sm text-[#221A17] placeholder-[#867273] focus:outline-none">
+              <button type="submit" class="inline-flex items-center justify-center gap-1.5 px-6 h-11 rounded-full bg-primary hover:bg-primary-dark text-white text-xs font-semibold transition-all shadow-md active:scale-95">
+                <span>Pesquisar</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+            </form>
+
+            <!-- 3 Métricas Centrais -->
+            <div class="mt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-[#534343]">
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-primary text-base">verified</span>
+                <span class="font-semibold text-[#221A17]">1.480+</span> Ensaios e Receitas
+              </div>
+              <span class="w-1 h-1 rounded-full bg-[#D8C1C2]"></span>
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-dourado text-base">public</span>
+                <span class="font-semibold text-[#221A17]">64</span> Nações de Origem
+              </div>
+              <span class="w-1 h-1 rounded-full bg-[#D8C1C2]"></span>
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-verde text-base">history_edu</span>
+                <span class="font-semibold text-[#221A17]">Técnicas Autênticas</span>
+              </div>
+            </div>
+
+            <!-- Tags Em Alta Hoje -->
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#867273] flex items-center gap-1 mr-1">
+                <span class="material-symbols-outlined text-[15px] text-primary">trending_up</span> EM ALTA HOJE:
+              </span>
+              <button type="button" onclick="setSearchTerm('Ramen Artesanal')" class="px-3.5 py-1 rounded-full bg-[#F5E5E0] hover:bg-[#EFDFDA] text-[#221A17] text-xs transition-colors">Ramen Artesanal</button>
+              <button type="button" onclick="setSearchTerm('Cacio e Pepe')" class="px-3.5 py-1 rounded-full bg-[#F5E5E0] hover:bg-[#EFDFDA] text-[#221A17] text-xs transition-colors">Cacio e Pepe</button>
+              <button type="button" onclick="setSearchTerm('Fermentação Selvagem')" class="px-3.5 py-1 rounded-full bg-[#F5E5E0] hover:bg-[#EFDFDA] text-[#221A17] text-xs transition-colors">Fermentação Selvagem</button>
+              <button type="button" onclick="setSearchTerm('Pães de Fermentação Lenta')" class="px-3.5 py-1 rounded-full bg-[#F5E5E0] hover:bg-[#EFDFDA] text-[#221A17] text-xs transition-colors">Pães de Fermentação Lenta</button>
+              <button type="button" onclick="setSearchTerm('Curry Tailandês')" class="px-3.5 py-1 rounded-full bg-[#F5E5E0] hover:bg-[#EFDFDA] text-[#221A17] text-xs transition-colors">Curry Tailandês</button>
+              <button type="button" onclick="setSearchTerm('Molhos Franceses')" class="px-3.5 py-1 rounded-full bg-[#F5E5E0] hover:bg-[#EFDFDA] text-[#221A17] text-xs transition-colors">Molhos Franceses</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4 Continentes & Tradições (Banners Horizontais Fiel ao Frame 4) -->
+      <section class="max-w-[1640px] mx-auto px-6 lg:px-12 py-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-3">
+          <div>
+            <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider mb-1">
+              <span class="material-symbols-outlined text-[18px]">public</span>
+              <span>TERRITÓRIOS CULINÁRIOS</span>
+            </div>
+            <h2 class="font-headline text-2xl sm:text-3xl font-semibold text-[#221A17]">Explorar por Continente &amp; Tradição</h2>
+          </div>
+          <p class="text-xs sm:text-sm text-[#534343] max-w-md">
+            Cadernos de campo organizados por patrimônios culturais e expressões gustativas regionais.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Banner 1: Ásia & Oriente -->
+          <div onclick="filtrarCards('japao')" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 h-64">
+            <div class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('../assets/images/ramen-detail-hero.jpg')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
+            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider">Tradição Ancestral</span>
+                <span class="text-xs text-white/80">• 296 Pratos</span>
+              </div>
+              <h3 class="font-headline text-2xl font-semibold text-white mb-1 group-hover:translate-x-1 transition-transform">
+                Ásia &amp; Oriente
+              </h3>
+              <p class="text-xs text-white/80 line-clamp-2 max-w-md leading-relaxed">
+                O equilíbrio sagrado do umami, noodles esticados à mão, curries aromáticos e a precisão do fogo wok.
+              </p>
+            </div>
+          </div>
+
+          <!-- Banner 2: Europa Clássica -->
+          <div onclick="filtrarCards('italia')" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 h-64">
+            <div class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('../assets/images/comunidade-gnocchi.jpg')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
+            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider">Terroir &amp; Rigor</span>
+                <span class="text-xs text-white/80">• 560 Pratos</span>
+              </div>
+              <h3 class="font-headline text-2xl font-semibold text-white mb-1 group-hover:translate-x-1 transition-transform">
+                Europa Clássica
+              </h3>
+              <p class="text-xs text-white/80 line-clamp-2 max-w-md leading-relaxed">
+                Das caves francesas às cantinas rurais da Emília-Romanha, o culto à manteiga, massa fresca e fermentos vivos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Banner 3: Américas & Sabores Indígenas -->
+          <div onclick="filtrarCards('mexico')" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 h-64">
+            <div class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('../assets/images/comunidade-moqueca.jpg')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
+            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider">Fogo &amp; Origens</span>
+                <span class="text-xs text-white/80">• 290 Pratos</span>
+              </div>
+              <h3 class="font-headline text-2xl font-semibold text-white mb-1 group-hover:translate-x-1 transition-transform">
+                Américas &amp; Sabores Indígenas
+              </h3>
+              <p class="text-xs text-white/80 line-clamp-2 max-w-md leading-relaxed">
+                Milho criollo nixtamalizado, pimentas defumadas andinas, mandioca brava e braseiros ancestrais de chão.
+              </p>
+            </div>
+          </div>
+
+          <!-- Banner 4: Mediterrâneo & Oriente Médio -->
+          <div onclick="filtrarCards('todos')" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 h-64">
+            <div class="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('../assets/images/comunidade-tartar.jpg')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
+            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider">Ervas &amp; Especiarias</span>
+                <span class="text-xs text-white/80">• 340 Pratos</span>
+              </div>
+              <h3 class="font-headline text-2xl font-semibold text-white mb-1 group-hover:translate-x-1 transition-transform">
+                Mediterrâneo &amp; Oriente Médio
+              </h3>
+              <p class="text-xs text-white/80 line-clamp-2 max-w-md leading-relaxed">
+                Za'atar selvagem, tahine acetinado, carnes perfumadas em carvão de oliveira e sumac fresco.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Sub-Nav & Category Filter Chips -->
+      <section class="max-w-[1640px] mx-auto px-6 lg:px-12 pt-4">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 py-3 border-b border-[#EFDFDA]">
+          <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0" id="filterCategoryButtons">
+            <button type="button" onclick="filtrarCards('todos', this)" class="px-4 py-1.5 rounded-full bg-primary text-white text-xs font-semibold shadow-sm filter-active">Todos os Pratos</button>
+            <button type="button" onclick="filtrarCards('japao', this)" class="px-4 py-1.5 rounded-full bg-[#FFF1EC] hover:bg-[#F5E5E0] text-[#221A17] text-xs font-medium">Japão</button>
+            <button type="button" onclick="filtrarCards('italia', this)" class="px-4 py-1.5 rounded-full bg-[#FFF1EC] hover:bg-[#F5E5E0] text-[#221A17] text-xs font-medium">Itália</button>
+            <button type="button" onclick="filtrarCards('tailandia', this)" class="px-4 py-1.5 rounded-full bg-[#FFF1EC] hover:bg-[#F5E5E0] text-[#221A17] text-xs font-medium">Tailândia</button>
+            <button type="button" onclick="filtrarCards('mexico', this)" class="px-4 py-1.5 rounded-full bg-[#FFF1EC] hover:bg-[#F5E5E0] text-[#221A17] text-xs font-medium">México</button>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs self-end sm:self-auto text-[#534343]">
+            <span class="font-semibold uppercase tracking-wider text-[10px]">Ordenar por:</span>
+            <select id="recipeSort" onchange="ordenarCards(this.value)" class="bg-[#FFF1EC] border border-[#EFDFDA] text-[#221A17] text-xs py-1 px-3 rounded-lg focus:outline-none focus:border-primary">
+              <option value="relevancia">Relevância Editorial</option>
+              <option value="tempo">Menor Tempo de Cocção</option>
+              <option value="avaliacao">Mais Bem Avaliados</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resultados em Destaque (5 Cards Fiel ao Frame 4) -->
+      <section class="max-w-[1640px] mx-auto px-6 lg:px-12 py-8 mb-12">
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-2.5 h-6 rounded-full bg-primary"></div>
+            <h2 class="font-headline text-2xl font-semibold text-[#221A17]">Resultados em Destaque</h2>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#F5E5E0] text-primary text-xs font-semibold" id="resultsCountBadge">5 pratos selecionados</span>
+          </div>
+          <div class="hidden sm:flex items-center gap-1.5 text-xs text-[#867273]">
+            <span class="material-symbols-outlined text-[16px] text-dourado">verified</span>
+            <span>Aferido pela Curadoria Mavory</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="recipeCardsGrid">
+          
+          <!-- Card 1: Ramen Shoyu Tradicional (Japão) -->
+          <article class="recipe-item bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-lg transition-all group cursor-pointer" data-origin="japao" data-rating="4.9" data-time="180" onclick="window.location.href='receita.html?id=ramen'">
+            <div>
+              <div class="relative h-56 w-full overflow-hidden bg-[#FFF1EC]">
+                <img src="../assets/images/ramen-detail-hero.jpg" alt="Ramen Shoyu Tradicional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-medium shadow-sm">
+                  <span>🇯🇵</span>
+                  <span>Tóquio, Japão</span>
+                </div>
+                <button type="button" aria-label="Favoritar" onclick="event.stopPropagation(); toggleAtlasBookmark(this, 'ramen')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                </button>
+              </div>
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary/10 text-primary">Difícil</span>
+                  <div class="flex items-center gap-1 text-xs font-semibold text-[#402A00]">
+                    <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span>4.9</span>
+                    <span class="text-[#867273] font-normal">(128)</span>
+                  </div>
+                </div>
+                <h3 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                  Ramen Shoyu Tradicional
+                </h3>
+                <p class="text-xs text-[#534343] line-clamp-2 leading-relaxed">
+                  Caldo chintan de frango e dashi apurado por 8 horas, tare de shoyu envelhecido em barril de cedro e noodles de hidratação precisa.
+                </p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center justify-between text-xs text-[#867273] border-t border-[#EFDFDA]/60 mt-2">
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">timer</span> 180 min
+              </span>
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">restaurant</span> 2 Porções
+              </span>
+            </div>
+          </article>
+
+          <!-- Card 2: Cacio e Pepe Autêntico (Itália) -->
+          <article class="recipe-item bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-lg transition-all group cursor-pointer" data-origin="italia" data-rating="4.8" data-time="20" onclick="window.location.href='receita.html?id=cacio'">
+            <div>
+              <div class="relative h-56 w-full overflow-hidden bg-[#FFF1EC]">
+                <img src="../assets/images/comunidade-gnocchi.jpg" alt="Cacio e Pepe Autêntico" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-medium shadow-sm">
+                  <span>🇮🇹</span>
+                  <span>Roma, Itália</span>
+                </div>
+                <button type="button" aria-label="Favoritar" onclick="event.stopPropagation(); toggleAtlasBookmark(this, 'cacio')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                </button>
+              </div>
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#CEE5D5] text-[#34483C]">Fácil</span>
+                  <div class="flex items-center gap-1 text-xs font-semibold text-[#402A00]">
+                    <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span>4.8</span>
+                    <span class="text-[#867273] font-normal">(310)</span>
+                  </div>
+                </div>
+                <h3 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                  Cacio e Pepe Autêntico
+                </h3>
+                <p class="text-xs text-[#534343] line-clamp-2 leading-relaxed">
+                  A alquimia romana de três ingredientes: Tonnarelli artesanal, Pecorino Romano DOP maturado e grãos de pimenta-do-reino tostados.
+                </p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center justify-between text-xs text-[#867273] border-t border-[#EFDFDA]/60 mt-2">
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">timer</span> 20 min
+              </span>
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">restaurant</span> 4 Porções
+              </span>
+            </div>
+          </article>
+
+          <!-- Card 3: Risotto ai Funghi Porcini (Itália) -->
+          <article class="recipe-item bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-lg transition-all group cursor-pointer" data-origin="italia" data-rating="4.9" data-time="45" onclick="window.location.href='receitas.html'">
+            <div>
+              <div class="relative h-56 w-full overflow-hidden bg-[#FFF1EC]">
+                <img src="../assets/images/comunidade-camila.jpg" alt="Risotto ai Funghi Porcini" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-medium shadow-sm">
+                  <span>🇮🇹</span>
+                  <span>Piemonte, Itália</span>
+                </div>
+                <button type="button" aria-label="Favoritar" onclick="event.stopPropagation(); toggleAtlasBookmark(this, 'risotto')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+                </button>
+              </div>
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#EDBF75]/30 text-[#402A00]">Médio</span>
+                  <div class="flex items-center gap-1 text-xs font-semibold text-[#402A00]">
+                    <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span>4.9</span>
+                    <span class="text-[#867273] font-normal">(94)</span>
+                  </div>
+                </div>
+                <h3 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                  Risotto ai Funghi Porcini
+                </h3>
+                <p class="text-xs text-[#534343] line-clamp-2 leading-relaxed">
+                  Arroz Carnaroli selado em vinho branco seco, hidratado com brodo vegetal artesanal e enriquecido por porcini secos e frescos.
+                </p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center justify-between text-xs text-[#867273] border-t border-[#EFDFDA]/60 mt-2">
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">timer</span> 45 min
+              </span>
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">restaurant</span> 3 Porções
+              </span>
+            </div>
+          </article>
+
+          <!-- Card 4: Pad Thai Tradicional de Rua (Tailândia) -->
+          <article class="recipe-item bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-lg transition-all group cursor-pointer" data-origin="tailandia" data-rating="4.7" data-time="30" onclick="window.location.href='receitas.html'">
+            <div>
+              <div class="relative h-56 w-full overflow-hidden bg-[#FFF1EC]">
+                <img src="../assets/images/comunidade-tartar.jpg" alt="Pad Thai Tradicional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-medium shadow-sm">
+                  <span>🇹🇭</span>
+                  <span>Bangkok, Tailândia</span>
+                </div>
+                <button type="button" aria-label="Favoritar" onclick="event.stopPropagation(); toggleAtlasBookmark(this, 'padthai')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+                </button>
+              </div>
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#CEE5D5] text-[#34483C]">Fácil</span>
+                  <div class="flex items-center gap-1 text-xs font-semibold text-[#402A00]">
+                    <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span>4.7</span>
+                    <span class="text-[#867273] font-normal">(204)</span>
+                  </div>
+                </div>
+                <h3 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                  Pad Thai Tradicional de Rua
+                </h3>
+                <p class="text-xs text-[#534343] line-clamp-2 leading-relaxed">
+                  O lendário wok thai com pasta de tamarindo puro, açúcar de palma não refinado, camarões secos e amendoins tostados na frigideira.
+                </p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center justify-between text-xs text-[#867273] border-t border-[#EFDFDA]/60 mt-2">
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">timer</span> 30 min
+              </span>
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">restaurant</span> 2 Porções
+              </span>
+            </div>
+          </article>
+
+          <!-- Card 5: Tacos Al Pastor (México) -->
+          <article class="recipe-item bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-lg transition-all group cursor-pointer" data-origin="mexico" data-rating="5.0" data-time="90" onclick="window.location.href='receitas.html'">
+            <div>
+              <div class="relative h-56 w-full overflow-hidden bg-[#FFF1EC]">
+                <img src="../assets/images/comunidade-moqueca.jpg" alt="Tacos Al Pastor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-medium shadow-sm">
+                  <span>🇲🇽</span>
+                  <span>Puebla, México</span>
+                </div>
+                <button type="button" aria-label="Favoritar" onclick="event.stopPropagation(); toggleAtlasBookmark(this, 'tacos')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+                </button>
+              </div>
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary/10 text-primary">Difícil</span>
+                  <div class="flex items-center gap-1 text-xs font-semibold text-[#402A00]">
+                    <span class="material-symbols-outlined text-[15px] text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span>5.0</span>
+                    <span class="text-[#867273] font-normal">(452)</span>
+                  </div>
+                </div>
+                <h3 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-primary transition-colors">
+                  Tacos Al Pastor com Tortilha Nixtamalizada
+                </h3>
+                <p class="text-xs text-[#534343] line-clamp-2 leading-relaxed">
+                  Marinado profundo em pasta de achiote, chiles guajillo e suco de laranja azeda, assado lentamente e coroado com abacaxi tostado.
+                </p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center justify-between text-xs text-[#867273] border-t border-[#EFDFDA]/60 mt-2">
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">timer</span> 90 min
+              </span>
+              <span class="flex items-center gap-1 pt-3">
+                <span class="material-symbols-outlined text-[16px]">restaurant</span> 6 Porções
+              </span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- VIEW 2: VISITOR MODE (Figma Screen 8 - 100% FIEL)        -->
+    <!-- ======================================================== -->
+    <div id="viewAtlasVisitor" class="hidden w-full max-w-[1640px] mx-auto px-6 lg:px-12 py-10 lg:py-14 space-y-12">
+      
+      <!-- Cartografia Culinária Header (Fiel ao Frame 8) -->
+      <section class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E5E0] text-primary text-[11px] font-bold tracking-wider uppercase">
+          <span class="w-1.5 h-1.5 rounded-full bg-dourado"></span>
+          CARTOGRAFIA CULINÁRIA • EDIÇÃO V
+        </span>
+        <h1 class="font-headline text-3xl sm:text-5xl font-semibold text-primary tracking-tight">
+          Atlas Gastronômico Mundial
+        </h1>
+        <p class="text-sm sm:text-base text-[#534343] leading-relaxed max-w-2xl mx-auto">
+          Navegue pelas rotas culinárias ancestrais, tradições de terroirs e cadernos de campo ao redor do globo.
+        </p>
+        <div class="pt-2">
+          <span class="px-4 py-1.5 rounded-full bg-[#FFF1EC] border border-[#D8C1C2] text-primary text-xs font-semibold inline-block">
+            6 Terroirs Primários Catalogados
+          </span>
+        </div>
+      </section>
+
+      <!-- 6 Terroirs Primários com Preparações Canônicas (Fiel ao Frame 8) -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Terroir 1: Japão -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] p-6 space-y-4 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-primary tracking-widest uppercase">TERROIR ANCESTRAL</span>
+            <span class="text-xl">🇯🇵</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold text-[#221A17]">Japão</h3>
+          <p class="text-xs font-bold text-dourado uppercase tracking-wide">Umami, Kaiseki &amp; Fermentação ancestral</p>
+          <p class="text-xs text-[#534343] leading-relaxed">
+            O equilíbrio sutil de caldos dashi límpidos, miso curado em cedro centenário e a reverência milenar à sazonalidade.
+          </p>
+          <div class="pt-4 border-t border-[#EFDFDA] space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[#867273] block">PREPARAÇÕES CANÔNICAS</span>
+            <div class="flex flex-col gap-2">
+              <a href="receita.html?id=ramen" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Tonkotsu Ramen</span>
+                <span class="text-[11px] text-[#867273] font-normal">Caldo de 14h →</span>
+              </a>
+              <a href="receitas.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Caldo Dashi Puro</span>
+                <span class="text-[11px] text-[#867273] font-normal">Kombu &amp; Bonito →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Terroir 2: Itália -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] p-6 space-y-4 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-primary tracking-widest uppercase">TRADIÇÃO CAMPONESA</span>
+            <span class="text-xl">🇮🇹</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold text-[#221A17]">Itália</h3>
+          <p class="text-xs font-bold text-dourado uppercase tracking-wide">Cucina Povera &amp; Pasta Fresca</p>
+          <p class="text-xs text-[#534343] leading-relaxed">
+            A elevação da simplicidade camponesa: trigos antigos, sova manual paciente e azeites de primeira prensagem.
+          </p>
+          <div class="pt-4 border-t border-[#EFDFDA] space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[#867273] block">PREPARAÇÕES CANÔNICAS</span>
+            <div class="flex flex-col gap-2">
+              <a href="receita.html?id=cacio" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Cacio e Pepe</span>
+                <span class="text-[11px] text-[#867273] font-normal">Pecorino Romano →</span>
+              </a>
+              <a href="receitas.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Ossobuco Milanese</span>
+                <span class="text-[11px] text-[#867273] font-normal">Gremolata &amp; Vinho →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Terroir 3: Brasil -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] p-6 space-y-4 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-primary tracking-widest uppercase">BIOMAS &amp; RAÍZES</span>
+            <span class="text-xl">🇧🇷</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold text-[#221A17]">Brasil</h3>
+          <p class="text-xs font-bold text-dourado uppercase tracking-wide">Dendê Sagrado &amp; Sabores Amazônicos</p>
+          <p class="text-xs text-[#534343] leading-relaxed">
+            A alquimia do dendê sagrado, farinhas de mandioca torradas em tacho de cobre, ervas amazônicas e peixes no barro.
+          </p>
+          <div class="pt-4 border-t border-[#EFDFDA] space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[#867273] block">PREPARAÇÕES CANÔNICAS</span>
+            <div class="flex flex-col gap-2">
+              <a href="receitas.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Moqueca Baiana Tradicional</span>
+                <span class="text-[11px] text-[#867273] font-normal">Panela de Barro →</span>
+              </a>
+              <a href="receitas.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Tacacá Paraense</span>
+                <span class="text-[11px] text-[#867273] font-normal">Tucupi &amp; Jambu →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Terroir 4: França (Borgonha & Paris) -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] p-6 space-y-4 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-primary tracking-widest uppercase">BERÇO CLÁSSICO</span>
+            <span class="text-xl">🇫🇷</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold text-[#221A17]">França</h3>
+          <p class="text-xs font-bold text-dourado uppercase tracking-wide">Borgonha, Manteiga &amp; Fermentação</p>
+          <p class="text-xs text-[#534343] leading-relaxed">
+            Cozimento longo em vinho tinto, caldos reduzidos com ossos e o requinte da padaria com leveduras selvagens.
+          </p>
+          <div class="pt-4 border-t border-[#EFDFDA] space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[#867273] block">PREPARAÇÕES CANÔNICAS</span>
+            <div class="flex flex-col gap-2">
+              <a href="receita.html?id=boeuf" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Boeuf Bourguignon</span>
+                <span class="text-[11px] text-[#867273] font-normal">Pinot Noir &amp; Tomilho →</span>
+              </a>
+              <a href="receitas.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Confit de Canard</span>
+                <span class="text-[11px] text-[#867273] font-normal">Gordura de Pato →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Terroir 5: Peru (Cordilheira & Pacífico) -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] p-6 space-y-4 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-primary tracking-widest uppercase">ALTIPLANO &amp; COSTA</span>
+            <span class="text-xl">🇵🇪</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold text-[#221A17]">Peru</h3>
+          <p class="text-xs font-bold text-dourado uppercase tracking-wide">Frescor Marinho &amp; Milho Ancestral</p>
+          <p class="text-xs text-[#534343] leading-relaxed">
+            A acidez revigorante do leche de tigre sobre peixes brancos frescos com a herança dos tubérculos andinos.
+          </p>
+          <div class="pt-4 border-t border-[#EFDFDA] space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[#867273] block">PREPARAÇÕES CANÔNICAS</span>
+            <div class="flex flex-col gap-2">
+              <a href="receita.html?id=ceviche" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Ceviche Costeiro</span>
+                <span class="text-[11px] text-[#867273] font-normal">Leche de Tigre →</span>
+              </a>
+              <a href="receitas.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Lomo Saltado Criollo</span>
+                <span class="text-[11px] text-[#867273] font-normal">Wok Chifa →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Terroir 6: México (Oaxaca & Puebla) -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] p-6 space-y-4 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-primary tracking-widest uppercase">FOGO SAGRADO</span>
+            <span class="text-xl">🇲🇽</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold text-[#221A17]">México</h3>
+          <p class="text-xs font-bold text-dourado uppercase tracking-wide">Milho Criollo &amp; Chiles Defumados</p>
+          <p class="text-xs text-[#534343] leading-relaxed">
+            Tortilhas feitas no comal de barro, pasta de achiote, folhas de abacate tostadas e marinados centenários.
+          </p>
+          <div class="pt-4 border-t border-[#EFDFDA] space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[#867273] block">PREPARAÇÕES CANÔNICAS</span>
+            <div class="flex flex-col gap-2">
+              <a href="receitas.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Tacos Al Pastor</span>
+                <span class="text-[11px] text-[#867273] font-normal">Achiote &amp; Abacaxi →</span>
+              </a>
+              <a href="receitas.html" class="p-2.5 rounded-xl bg-[#FFF1EC] hover:bg-[#F5E5E0] flex items-center justify-between text-xs text-[#221A17] font-semibold transition-colors">
+                <span>Mole Negro de Oaxaca</span>
+                <span class="text-[11px] text-[#867273] font-normal">Cacau &amp; 30 Especiarias →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Visitor Banner CTA -->
+      <section class="p-8 sm:p-12 rounded-3xl bg-[#F5E5E0] border border-[#EFDFDA] flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div class="space-y-2">
+          <h3 class="font-headline text-2xl sm:text-3xl font-semibold text-[#221A17]">Deseja salvar e imprimir estas receitas?</h3>
+          <p class="text-xs sm:text-sm text-[#534343] max-w-xl">
+            Crie sua conta no Mavory para ter seu próprio fichário culinário, favoritar terroirs e interagir com autores de todo o mundo.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+          <a href="login.html" class="px-6 py-3 rounded-full border border-[#D8C1C2] hover:bg-[#FFF1EC] text-primary text-xs font-semibold transition-all">Entrar</a>
+          <a href="cadastro.html" class="px-7 py-3 rounded-full bg-primary hover:bg-primary-dark text-white text-xs font-semibold transition-all shadow-md">Criar conta grátis</a>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- FOOTER GLOBAL                              -->
+  <!-- ========================================== -->
+  <footer class="w-full bg-[#FFF1EC] border-t border-[#EFDFDA] mt-16">
+    <div class="max-w-[1640px] mx-auto px-6 lg:px-12 pt-14 pb-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12">
+        <div class="md:col-span-4 space-y-3">
+          <img src="../assets/images/logo.png" alt="Mavory" class="h-8 w-auto object-contain mavory-logo">
+          <p class="text-xs text-[#534343] max-w-sm leading-relaxed">
+            Um compêndio de narrativas culinárias, tradições de terroir e cadernos de campo dedicados aos amantes da autêntica gastronomia global.
+          </p>
+        </div>
+        <div class="md:col-span-4 space-y-3">
+          <span class="text-xs font-bold text-dourado uppercase tracking-wider block">Mapa Gastronômico</span>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="receitas.html" class="text-[#534343] hover:text-primary transition-colors">Caderno de Receitas</a>
+            <a href="descobrir.html" class="text-[#534343] hover:text-primary transition-colors">Terroirs &amp; Regiões</a>
+            <a href="descobrir.html" class="text-[#534343] hover:text-primary transition-colors">Guia de Produtores</a>
+            <a href="comunidade.html" class="text-[#534343] hover:text-primary transition-colors">Crônicas e Ensaios</a>
+          </div>
+        </div>
+        <div class="md:col-span-4 space-y-3">
+          <span class="text-xs font-bold text-dourado uppercase tracking-wider block">Notas do Chef</span>
+          <p class="text-xs text-[#534343]">Receba quinzenalmente ensaios de culinária artesanal, viagens de descoberta e receitas originais.</p>
+          <form class="flex items-center gap-2" onsubmit="event.preventDefault(); alert('Obrigado por assinar as Notas do Chef!');">
+            <input type="email" required placeholder="Seu melhor e-mail" class="flex-1 h-10 px-4 rounded-xl bg-white border border-[#D8C1C2] text-xs focus:outline-none focus:border-primary">
+            <button type="submit" class="h-10 px-5 rounded-xl bg-primary hover:bg-primary-dark text-white text-xs font-semibold transition-all">Assinar</button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-6 border-t border-[#EFDFDA] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#867273]">
+        <p>Mavory © 2025 • Exploração Gastronômica Mundial</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-primary transition-colors">Manifesto Editorial</a>
+          <a href="#" class="hover:text-primary transition-colors">Privacidade</a>
+          <a href="#" class="hover:text-primary transition-colors">Acervo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DE BUSCA, FILTROS E FAVORITOS -->
+  <script>
+    // Alternância de Telas (Figma Screen 4 vs Screen 8)
+    function switchAtlasMode(mode) {
+      const viewAuth = document.getElementById('viewAtlasAuth');
+      const viewVisitor = document.getElementById('viewAtlasVisitor');
+      const banner = document.getElementById('visitorTopBanner');
+      const headerAuth = document.getElementById('headerAuthArea');
+      const headerVisitor = document.getElementById('headerVisitorArea');
+      const btnAuth = document.getElementById('btnModeAuth');
+      const btnVisitor = document.getElementById('btnModeVisitor');
+
+      if (mode === 'visitor') {
+        viewAuth.classList.add('hidden');
+        viewVisitor.classList.remove('hidden');
+        banner.classList.remove('hidden');
+        headerAuth.classList.add('hidden');
+        headerVisitor.classList.remove('hidden');
+        btnAuth.className = 'px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium transition-all';
+        btnVisitor.className = 'px-2.5 py-1 rounded-full bg-[#722F37] text-white font-semibold transition-all';
+      } else {
+        viewVisitor.classList.add('hidden');
+        viewAuth.classList.remove('hidden');
+        banner.classList.add('hidden');
+        headerVisitor.classList.add('hidden');
+        headerAuth.classList.remove('hidden');
+        btnVisitor.className = 'px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium transition-all';
+        btnAuth.className = 'px-2.5 py-1 rounded-full bg-[#722F37] text-white font-semibold transition-all';
+      }
+    }
+
+    // Busca & Filtros
+    function setSearchTerm(term) {
+      const input = document.getElementById('mainSearchInput');
+      if (input) {
+        input.value = term;
+        executarBusca();
+      }
+    }
+
+    function executarBusca() {
+      const query = (document.getElementById('mainSearchInput').value || '').toLowerCase().trim();
+      const cards = document.querySelectorAll('#recipeCardsGrid .recipe-item');
+      let count = 0;
+
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (!query || text.includes(query)) {
+          card.style.display = 'flex';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const badge = document.getElementById('resultsCountBadge');
+      if (badge) badge.textContent = `${count} ${count === 1 ? 'prato selecionado' : 'pratos selecionados'}`;
+    }
+
+    function filtrarCards(origem, btn) {
+      const cards = document.querySelectorAll('#recipeCardsGrid .recipe-item');
+      let count = 0;
+
+      cards.forEach(card => {
+        const cardOrigin = card.getAttribute('data-origin');
+        if (origem === 'todos' || cardOrigin === origem) {
+          card.style.display = 'flex';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (btn) {
+        const buttons = document.querySelectorAll('#filterCategoryButtons button');
+        buttons.forEach(b => {
+          b.className = 'px-4 py-1.5 rounded-full bg-[#FFF1EC] hover:bg-[#F5E5E0] text-[#221A17] text-xs font-medium';
+        });
+        btn.className = 'px-4 py-1.5 rounded-full bg-primary text-white text-xs font-semibold shadow-sm filter-active';
+      }
+
+      const badge = document.getElementById('resultsCountBadge');
+      if (badge) badge.textContent = `${count} ${count === 1 ? 'prato selecionado' : 'pratos selecionados'}`;
+    }
+
+    function ordenarCards(criterio) {
+      const grid = document.getElementById('recipeCardsGrid');
+      const cards = Array.from(grid.querySelectorAll('.recipe-item'));
+
+      cards.sort((a, b) => {
+        if (criterio === 'tempo') {
+          return parseInt(a.getAttribute('data-time') || 0) - parseInt(b.getAttribute('data-time') || 0);
+        } else if (criterio === 'avaliacao') {
+          return parseFloat(b.getAttribute('data-rating') || 0) - parseFloat(a.getAttribute('data-rating') || 0);
+        }
+        return 0;
+      });
+
+      cards.forEach(card => grid.appendChild(card));
+    }
+
+    function toggleAtlasBookmark(button, recipeId) {
+      const icon = button.querySelector('.material-symbols-outlined');
+      if (!icon) return;
+      let favorites = JSON.parse(localStorage.getItem('mavory_favorites_v1') || '["ramen", "cacio", "boeuf"]');
+      
+      if (favorites.includes(recipeId)) {
+        favorites = favorites.filter(id => id !== recipeId);
+        icon.textContent = 'favorite_border';
+        icon.style.fontVariationSettings = "'FILL' 0";
+      } else {
+        favorites.push(recipeId);
+        icon.textContent = 'favorite';
+        icon.style.fontVariationSettings = "'FILL' 1";
+      }
+      localStorage.setItem('mavory_favorites_v1', JSON.stringify(favorites));
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('mode') === 'visitor') {
+        switchAtlasMode('visitor');
+      }
+    });
+  </script>
+</body>
+</html>

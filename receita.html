@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramen Shoyu com Chashu Artesanal — Mavory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#722F37",
+            "primary-dark": "#561922",
+            "primary-container": "#722F37",
+            "on-primary": "#ffffff",
+            "surface": "#FFF8F6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#FFF1EC",
+            "surface-container": "#FBEAE5",
+            "surface-container-high": "#F5E5E0",
+            "surface-container-highest": "#EFDFDA",
+            "on-surface": "#221A17",
+            "on-surface-variant": "#534343",
+            "outline": "#867273",
+            "outline-variant": "#D8C1C2",
+            "gold": "#C49A54",
+            "tertiary": "#402A00",
+            "tertiary-container": "#5D3F00",
+            "secondary": "#34483C",
+            "secondary-container": "#CEE5D5"
+          },
+          fontFamily: {
+            headline: ["Playfair Display", "serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="bg-[#FFF8F6] text-[#221A17] font-body antialiased selection:bg-[#722F37] selection:text-white">
+
+  <!-- Header Global -->
+  <header class="sticky top-0 z-50 bg-[#FFF8F6]/95 backdrop-blur-md border-b border-[#EFDFDA]">
+    <div class="h-20 max-w-[1640px] mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="inicio.html" class="flex items-center">
+          <img src="../assets/images/logo.png" alt="Mavory" class="h-10 w-auto object-contain">
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center gap-2">
+        <a href="inicio.html" class="px-4 py-2 font-body text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Início</a>
+        <a href="receitas.html" class="px-4 py-2 font-body text-sm font-semibold text-[#722F37] bg-[#FBEAE5] rounded-lg transition-all">Receitas</a>
+        <a href="descobrir.html" class="px-4 py-2 font-body text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Descobrir</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="compartilhar.html" class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#722F37] hover:bg-[#561922] text-white font-body text-sm font-medium transition-all shadow-sm">
+          <span>Compartilhar Prato</span>
+        </a>
+        <a href="perfil.html" class="w-10 h-10 rounded-full border border-[#D8C1C2] hover:bg-[#FBEAE5] flex items-center justify-center text-[#722F37] transition-all" title="Meu Perfil">
+          <span class="material-symbols-outlined text-[24px]">account_circle</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="max-w-[1640px] mx-auto px-6 lg:px-12 pt-6 pb-2">
+    <div class="flex items-center gap-2 text-xs text-[#534343]">
+      <a href="receitas.html" class="hover:text-[#722F37] flex items-center gap-1 font-medium transition-colors">
+        <span class="material-symbols-outlined text-sm">arrow_back</span> Caderno de Receitas
+      </a>
+      <span class="text-[#D8C1C2]">/</span>
+      <span>Culinária Oriental</span>
+      <span class="text-[#D8C1C2]">/</span>
+      <span class="text-[#221A17] font-semibold">Ramen Shoyu com Chashu Artesanal</span>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal em 2 Colunas (Fiel ao MacBook Pro 16_ - 3.png) -->
+  <main class="max-w-[1640px] mx-auto px-6 lg:px-12 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- Coluna Esquerda: Ensaio Culinário, História, Fotos e Terroirs (7 colunas) -->
+      <div class="lg:col-span-7 space-y-8">
+        
+        <!-- Hero Image Card -->
+        <div class="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-md bg-[#FBEAE5]">
+          <img src="../assets/images/ramen-detail-hero.jpg" alt="Ramen Shoyu com Chashu Artesanal" class="w-full h-full object-cover">
+          
+          <!-- Badges sobre a foto -->
+          <div class="absolute top-4 left-4 flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#221A17]/80 backdrop-blur-md text-white text-xs font-semibold">
+              <span class="w-2 h-2 rounded-full bg-red-500"></span> Japão • Fukuoka
+            </span>
+            <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#FFF8F6]/90 backdrop-blur-md text-[#221A17] text-xs font-semibold shadow-sm">
+              <span class="material-symbols-outlined text-xs text-[#C49A54]" style="font-variation-settings: 'FILL' 1;">star</span> 4.8 <span class="font-normal text-[#534343]">(142 ensaios)</span>
+            </span>
+          </div>
+
+          <button id="detailFavoriteBtn" onclick="toggleDetailBookmark()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#FFF8F6]/90 backdrop-blur-md flex items-center justify-center text-[#722F37] hover:scale-105 transition-transform shadow-sm" title="Salvar receita">
+            <span id="detailBookmarkIcon" class="material-symbols-outlined text-[20px]">bookmark_border</span>
+          </button>
+        </div>
+
+        <!-- Meta Informações Rápidas -->
+        <div class="flex flex-wrap items-center gap-2.5 text-xs text-[#534343]">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FBEAE5] text-[#722F37] font-medium">
+            <span class="material-symbols-outlined text-[15px]">schedule</span> 2h 30min
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FBEAE5] text-[#221A17] font-medium">
+            <span class="flex gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-[#722F37]"></span><span class="w-1.5 h-1.5 rounded-full bg-[#722F37]"></span><span class="w-1.5 h-1.5 rounded-full bg-[#D8C1C2]"></span></span> Médio
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FBEAE5] text-[#221A17] font-medium">
+            <span class="material-symbols-outlined text-[15px]">soup_kitchen</span> Rendimento: <span id="servingsBadge">2 tigelas</span>
+          </span>
+          <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#CEE5D5] text-[#34483C] font-semibold">
+            Heritage Ramen • Tradição Shouwa
+          </span>
+        </div>
+
+        <!-- Título e Texto Editorial -->
+        <div class="space-y-4">
+          <h1 class="font-headline text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#722F37] leading-[1.15] tracking-tight">
+            Ramen Shoyu com Chashu Artesanal
+          </h1>
+          <p class="text-base text-[#534343] leading-relaxed">
+            O Shoyu Ramen autêntico não é meramente um caldo, mas um exercício de paciência e equilíbrio umami. O coração desta versão reside na sinergia entre o <em>chintan dashi</em> límpido — extraído lentamente de cogumelos shiitake silvestres, kombu de Hokkaido e aves caipiras — e um tare de soja maturada em barris de cedro.
+          </p>
+          <p class="text-base text-[#534343] leading-relaxed">
+            Cada fatia de <em>chashu</em> é selada vigorosamente e depois braseada em infusão com mirin e gengibre fresco até atingir a textura sedosa onde a gordura se dissolve ao calor do caldo. Os ovos <em>ajitsuke</em>, com gema untuosa de tom âmbar translúcido, completam a harmonia entre doçura sutil, salinidade terrosa e aroma defumado.
+          </p>
+        </div>
+
+        <!-- 2 Sub-fotos: O Ponto da Pancetta & Gema Âmbar -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-[#FBEAE5] shadow-sm group">
+            <img src="../assets/images/pancetta-passo.jpg" alt="O Ponto da Pancetta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-3 left-3 px-3 py-1 rounded-md bg-[#221A17]/85 backdrop-blur-sm text-white text-xs font-medium">
+              O Ponto da Pancetta
+            </div>
+          </div>
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-[#FBEAE5] shadow-sm group">
+            <img src="../assets/images/ovo-ajitsuke-passo.jpg" alt="Gema Âmbar em Marinada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-3 left-3 px-3 py-1 rounded-md bg-[#221A17]/85 backdrop-blur-sm text-white text-xs font-medium">
+              Gema Âmbar em Marinada
+            </div>
+          </div>
+        </div>
+
+        <!-- Compêndio Geográfico: Variações Regionais & Terroirs -->
+        <div class="rounded-2xl bg-[#FFF1EC] p-6 lg:p-7 space-y-4 border border-[#EFDFDA]">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#722F37]">Compêndio Geográfico</span>
+            <span class="material-symbols-outlined text-[20px] text-[#C49A54]">travel_explore</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-xl font-semibold text-[#221A17]">Variações Regionais &amp; Terroirs</h3>
+            <p class="text-xs text-[#534343] mt-1">A arquitetura do ramen divide-se historicamente em quatro grandes escolas de sabor no arquipélago nipônico:</p>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
+            <div class="p-3.5 rounded-xl bg-white/90 border border-[#EFDFDA]/60">
+              <span class="text-[10px] font-semibold text-[#867273] uppercase tracking-wider block">Kyushu</span>
+              <strong class="font-headline text-sm text-[#221A17] block mt-0.5">Tonkotsu</strong>
+              <p class="text-xs text-[#534343] mt-1 leading-snug">Emulsão rica e opaca de ossos suínos em fervura intensa contínua.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-white/90 border border-[#EFDFDA]/60">
+              <span class="text-[10px] font-semibold text-[#867273] uppercase tracking-wider block">Hokkaido</span>
+              <strong class="font-headline text-sm text-[#221A17] block mt-0.5">Miso</strong>
+              <p class="text-xs text-[#534343] mt-1 leading-snug">Pasta fermentada encorpada com toques de alho tostado e manteiga.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-white/90 border border-[#EFDFDA]/60">
+              <span class="text-[10px] font-semibold text-[#867273] uppercase tracking-wider block">Hakodate</span>
+              <strong class="font-headline text-sm text-[#221A17] block mt-0.5">Shio</strong>
+              <p class="text-xs text-[#534343] mt-1 leading-snug">Clarificado, mineral e focado na pureza salina de algas nobres.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-white/90 border border-[#EFDFDA]/60">
+              <span class="text-[10px] font-semibold text-[#867273] uppercase tracking-wider block">Tóquio</span>
+              <strong class="font-headline text-sm text-[#221A17] block mt-0.5">Tsukemen</strong>
+              <p class="text-xs text-[#534343] mt-1 leading-snug">Massa espessa servida fria para imersão em molho ultra concentrado.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Harmonização Sugerida -->
+        <div class="rounded-2xl bg-[#FBEAE5]/80 p-6 space-y-3 border border-[#EFDFDA]">
+          <div class="flex items-center gap-2 text-[#722F37] font-semibold text-sm">
+            <span class="material-symbols-outlined text-[18px]">wine_bar</span>
+            <span>Harmonização Sugerida</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-1">
+            <div>
+              <p class="text-xs font-semibold text-[#221A17]">Saquê Junmai Daiginjo</p>
+              <p class="text-xs text-[#534343] mt-1 leading-relaxed">Notas sutis de pêra asiática e acidez fresca cortam a gordura suntuosa do chashu sem sobrepujar a delicadeza do caldo shoyu.</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-[#221A17]">Chá Hojicha Tostado</p>
+              <p class="text-xs text-[#534343] mt-1 leading-relaxed">Opção sem álcool com taninos aveludados e notas de madeira tostada, ressaltando o tare de soja fermentada.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Coluna Direita: Ações, Ingredientes com Porcionamento e Modo de Preparo (5 colunas) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Botões de Ação Topo -->
+        <div class="grid grid-cols-3 gap-2 bg-[#FBEAE5]/70 p-1.5 rounded-2xl border border-[#EFDFDA]">
+          <button onclick="toggleDetailBookmark()" class="py-2 px-3 rounded-xl hover:bg-white text-xs font-medium text-[#221A17] flex items-center justify-center gap-1.5 transition-all">
+            <span class="material-symbols-outlined text-[17px] text-[#722F37]">menu_book</span>
+            <span>Salvar Caderno</span>
+          </button>
+          <button onclick="window.print()" class="py-2 px-3 rounded-xl hover:bg-white text-xs font-medium text-[#221A17] flex items-center justify-center gap-1.5 transition-all">
+            <span class="material-symbols-outlined text-[17px] text-[#534343]">print</span>
+            <span>Imprimir</span>
+          </button>
+          <button onclick="shareRecipeLink()" class="py-2 px-3 rounded-xl hover:bg-white text-xs font-medium text-[#221A17] flex items-center justify-center gap-1.5 transition-all">
+            <span class="material-symbols-outlined text-[17px] text-[#534343]">share</span>
+            <span>Compartilhar</span>
+          </button>
+        </div>
+
+        <!-- Card: MISE EN PLACE / Ingredientes -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-[#EFDFDA] space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-[#EFDFDA]">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-wider text-[#867273]">Mise en Place</span>
+              <h2 class="font-headline text-xl font-semibold text-[#221A17]">Ingredientes</h2>
+            </div>
+            <!-- Contador Interativo de Porções -->
+            <div class="flex items-center gap-2 bg-[#FBEAE5] px-3 py-1.5 rounded-full">
+              <button onclick="adjustServings(-1)" class="w-6 h-6 rounded-full bg-white text-[#722F37] font-bold text-sm flex items-center justify-center hover:bg-[#F5E5E0] transition-colors leading-none" aria-label="Diminuir porções">−</button>
+              <span id="servingsDisplay" class="text-xs font-semibold text-[#221A17] min-w-[55px] text-center">2 tigelas</span>
+              <button onclick="adjustServings(1)" class="w-6 h-6 rounded-full bg-white text-[#722F37] font-bold text-sm flex items-center justify-center hover:bg-[#F5E5E0] transition-colors leading-none" aria-label="Aumentar porções">+</button>
+            </div>
+          </div>
+
+          <!-- Lista de Ingredientes com Checkboxes Interativos -->
+          <ul class="space-y-3" id="ingredientsList">
+            <li class="flex items-center justify-between py-1 text-sm text-[#534343] hover:text-[#221A17] transition-colors">
+              <label class="flex items-center gap-3 cursor-pointer flex-1">
+                <input type="checkbox" onchange="updateSelectedCount()" class="w-4 h-4 rounded border-[#D8C1C2] text-[#722F37] focus:ring-[#722F37] cursor-pointer">
+                <span>Noodles frescos de trigo alcalino (kansui)</span>
+              </label>
+              <span class="font-semibold text-xs text-[#221A17] ml-2 shrink-0 ingredient-qty" data-base="260" data-unit="g">260g</span>
+            </li>
+            <li class="flex items-center justify-between py-1 text-sm text-[#534343] hover:text-[#221A17] transition-colors">
+              <label class="flex items-center gap-3 cursor-pointer flex-1">
+                <input type="checkbox" onchange="updateSelectedCount()" class="w-4 h-4 rounded border-[#D8C1C2] text-[#722F37] focus:ring-[#722F37] cursor-pointer">
+                <span>Pancetta suína em rolo com amarras</span>
+              </label>
+              <span class="font-semibold text-xs text-[#221A17] ml-2 shrink-0 ingredient-qty" data-base="400" data-unit="g">400g</span>
+            </li>
+            <li class="flex items-center justify-between py-1 text-sm text-[#534343] hover:text-[#221A17] transition-colors">
+              <label class="flex items-center gap-3 cursor-pointer flex-1">
+                <input type="checkbox" onchange="updateSelectedCount()" class="w-4 h-4 rounded border-[#D8C1C2] text-[#722F37] focus:ring-[#722F37] cursor-pointer">
+                <span>Ovos caipiras orgânicos (para Ajitsuke)</span>
+              </label>
+              <span class="font-semibold text-xs text-[#221A17] ml-2 shrink-0 ingredient-qty" data-base="2" data-unit=" un">2 un</span>
+            </li>
+            <li class="flex items-center justify-between py-1 text-sm text-[#534343] hover:text-[#221A17] transition-colors">
+              <label class="flex items-center gap-3 cursor-pointer flex-1">
+                <input type="checkbox" onchange="updateSelectedCount()" class="w-4 h-4 rounded border-[#D8C1C2] text-[#722F37] focus:ring-[#722F37] cursor-pointer">
+                <span>Caldo dashi artesanal de shiitake &amp; kombu</span>
+              </label>
+              <span class="font-semibold text-xs text-[#221A17] ml-2 shrink-0 ingredient-qty" data-base="800" data-unit="ml">800ml</span>
+            </li>
+            <li class="flex items-center justify-between py-1 text-sm text-[#534343] hover:text-[#221A17] transition-colors">
+              <label class="flex items-center gap-3 cursor-pointer flex-1">
+                <input type="checkbox" onchange="updateSelectedCount()" class="w-4 h-4 rounded border-[#D8C1C2] text-[#722F37] focus:ring-[#722F37] cursor-pointer">
+                <span>Tare clássico de shoyu envelhecido e mirin</span>
+              </label>
+              <span class="font-semibold text-xs text-[#221A17] ml-2 shrink-0 ingredient-qty" data-base="60" data-unit="ml">60ml</span>
+            </li>
+            <li class="flex items-center justify-between py-1 text-sm text-[#534343] hover:text-[#221A17] transition-colors">
+              <label class="flex items-center gap-3 cursor-pointer flex-1">
+                <input type="checkbox" onchange="updateSelectedCount()" class="w-4 h-4 rounded border-[#D8C1C2] text-[#722F37] focus:ring-[#722F37] cursor-pointer">
+                <span>Óleo aromatizado de alho negro (Mayu)</span>
+              </label>
+              <span class="font-semibold text-xs text-[#221A17] ml-2 shrink-0 ingredient-qty" data-base="15" data-unit="ml">15ml</span>
+            </li>
+            <li class="flex items-center justify-between py-1 text-sm text-[#534343] hover:text-[#221A17] transition-colors">
+              <label class="flex items-center gap-3 cursor-pointer flex-1">
+                <input type="checkbox" onchange="updateSelectedCount()" class="w-4 h-4 rounded border-[#D8C1C2] text-[#722F37] focus:ring-[#722F37] cursor-pointer">
+                <span>Guarnições: cebolinha laminada, nori e menma</span>
+              </label>
+              <span class="font-semibold text-xs text-[#221A17] ml-2 shrink-0">A gosto</span>
+            </li>
+          </ul>
+
+          <div class="pt-3 border-t border-[#EFDFDA] flex items-center justify-between text-xs text-[#534343]">
+            <span>Ingredientes Selecionados</span>
+            <span id="selectedCountText" class="font-semibold text-[#722F37]">0 de 7</span>
+          </div>
+        </div>
+
+        <!-- Card: TÉCNICA & ROTEIRO / Modo de Preparo -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-[#EFDFDA] space-y-6">
+          <div>
+            <span class="text-[10px] uppercase font-bold tracking-wider text-[#867273]">Técnica &amp; Roteiro</span>
+            <h2 class="font-headline text-xl font-semibold text-[#221A17]">Modo de Preparo</h2>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Passo 1 -->
+            <div class="flex items-start gap-4">
+              <span class="w-7 h-7 rounded-full bg-[#722F37] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+              <div class="space-y-1.5 flex-1">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-headline text-sm font-semibold text-[#221A17]">O Caldo Base (Chintan Dashi)</h4>
+                  <span class="text-[11px] text-[#867273] font-medium">60 min</span>
+                </div>
+                <p class="text-xs text-[#534343] leading-relaxed">
+                  Hidrate as lâminas de kombu e cogumelos shiitake em fogo baixo, nunca permitindo a fervura borbulhante. Após retirar a alga no ponto de fulgor, adicione a carcaça de ave pré-escaldada e mantenha a infusão límpida em 85°C com escumação constante.
+                </p>
+              </div>
+            </div>
+
+            <!-- Passo 2 -->
+            <div class="flex items-start gap-4">
+              <span class="w-7 h-7 rounded-full bg-[#722F37] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+              <div class="space-y-1.5 flex-1">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-headline text-sm font-semibold text-[#221A17]">O Chashu Caramelizado</h4>
+                  <span class="text-[11px] text-[#867273] font-medium">70 min</span>
+                </div>
+                <p class="text-xs text-[#534343] leading-relaxed">
+                  Sele a pancetta cilíndrica amarrada em panela de ferro fundido até formar crosta dourada uniforme. Transfira para líquido de braseamento com mirin, saquê seco, açúcar mascavo e shoyu. Cozinhe em fogo brando com tampa tipo <em>drop-lid</em> (落とし蓋). Resfrie antes de cortar fino.
+                </p>
+              </div>
+            </div>
+
+            <!-- Passo 3 -->
+            <div class="flex items-start gap-4">
+              <span class="w-7 h-7 rounded-full bg-[#722F37] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+              <div class="space-y-1.5 flex-1">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-headline text-sm font-semibold text-[#221A17]">Os Ovos Marinados (Ajitsuke)</h4>
+                  <span class="text-[11px] text-[#867273] font-medium">6m 15s</span>
+                </div>
+                <p class="text-xs text-[#534343] leading-relaxed">
+                  Mergulhe os ovos em ebulição vigorosa cronometrando exatamente 6 minutos e 15 segundos. Resfrie em banho de gelo com água pura. Descasque sob fluxo leve e deixe imergir na marinada do chashu por no mínimo 4 horas.
+                </p>
+              </div>
+            </div>
+
+            <!-- Passo 4 -->
+            <div class="flex items-start gap-4">
+              <span class="w-7 h-7 rounded-full bg-[#722F37] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+              <div class="space-y-1.5 flex-1">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-headline text-sm font-semibold text-[#221A17]">Montagem do Tigela &amp; Tare</h4>
+                  <span class="text-[11px] text-[#867273] font-medium">5 min</span>
+                </div>
+                <p class="text-xs text-[#534343] leading-relaxed">
+                  Aqueça as tigelas de cerâmica com água quente prévia. Despeje 30ml de tare e o óleo aromatizado no fundo. Verta o caldo fervente, dobre a massa fresca cozida por exatos 50 segundos, posicione o chashu maçaricado levemente, meio ovo marinado, brotos e folha de nori seca.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Segredo do Mestre Cuca -->
+        <div class="rounded-2xl bg-[#34483C] text-white p-5 space-y-2 shadow-md">
+          <div class="flex items-center gap-2 text-[#C49A54] font-semibold text-xs tracking-wider uppercase">
+            <span class="material-symbols-outlined text-[17px]">lightbulb</span>
+            <span>Segredo do Mestre Cuca</span>
+          </div>
+          <p class="text-xs text-[#CEE5D5] leading-relaxed">
+            Nunca ferva a água dos noodles sem sal ou alcalinidade. O <em>kansui</em> garante a textura elástica <em>al dente</em> indispensável para reter as gotas de emulsão de soja nas estrias da massa.
+          </p>
+        </div>
+
+        <!-- Botão Iniciar Modo de Cocção -->
+        <button onclick="startCookingMode()" class="w-full h-14 rounded-2xl bg-[#722F37] hover:bg-[#561922] text-white font-headline text-base font-medium flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.99]">
+          <span class="material-symbols-outlined text-[20px]">play_circle</span>
+          <span>Iniciar Modo de Cocção Passo a Passo</span>
+        </button>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Interativo do Modo de Cocção Passo a Passo -->
+  <div id="cookingModal" class="hidden fixed inset-0 z-[100] bg-[#302724]/75 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-[#FFF8F6] rounded-2xl shadow-2xl overflow-hidden border border-[#EFDFDA]">
+      <div class="px-6 py-4 bg-[#722F37] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-gold">skillet</span>
+          <h3 class="font-headline text-lg font-semibold" id="modalStepTitle">Modo de Cocção — Passo 1 de 4</h3>
+        </div>
+        <button onclick="closeCookingMode()" class="w-8 h-8 rounded-full hover:bg-white/20 flex items-center justify-center text-white text-lg">✕</button>
+      </div>
+      <div class="p-6 space-y-6">
+        <div>
+          <span id="modalStepPhase" class="text-xs uppercase font-bold tracking-widest text-[#722F37]">O Caldo Base (Chintan Dashi)</span>
+          <p id="modalStepInstructions" class="text-base text-[#221A17] mt-2 leading-relaxed">
+            Hidrate as lâminas de kombu e cogumelos shiitake em fogo baixo, nunca permitindo a fervura borbulhante. Após retirar a alga no ponto de fulgor, adicione a carcaça de ave pré-escaldada e mantenha a infusão límpida em 85°C com escumação constante.
+          </p>
+        </div>
+
+        <!-- Cronômetro do Passo -->
+        <div class="rounded-xl bg-[#FBEAE5] p-5 flex items-center justify-between">
+          <div>
+            <span class="text-xs text-[#534343] font-medium block">Tempo Recomendado</span>
+            <span id="timerDisplay" class="font-headline text-3xl font-bold text-[#722F37]">60:00</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="timerToggleBtn" onclick="toggleCookingTimer()" class="px-4 py-2 rounded-full bg-[#722F37] text-white text-xs font-semibold hover:bg-[#561922] transition-colors flex items-center gap-1.5">
+              <span id="timerIcon" class="material-symbols-outlined text-[16px]">play_arrow</span>
+              <span id="timerText">Iniciar Timer</span>
+            </button>
+            <button onclick="resetCookingTimer()" class="p-2 rounded-full bg-white text-[#534343] hover:text-[#722F37] transition-colors" title="Reiniciar timer">
+              <span class="material-symbols-outlined text-[18px]">replay</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Controles de Avanço do Passo -->
+        <div class="flex items-center justify-between pt-2 border-t border-[#EFDFDA]">
+          <button id="prevStepBtn" onclick="changeCookingStep(-1)" class="px-4 py-2 rounded-full border border-[#D8C1C2] text-xs font-medium text-[#534343] hover:bg-[#FBEAE5] disabled:opacity-40 disabled:pointer-events-none">
+            ← Passo Anterior
+          </button>
+          <div class="flex gap-1.5" id="stepDots">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#722F37]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#D8C1C2]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#D8C1C2]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#D8C1C2]"></span>
+          </div>
+          <button id="nextStepBtn" onclick="changeCookingStep(1)" class="px-5 py-2 rounded-full bg-[#722F37] text-white text-xs font-semibold hover:bg-[#561922]">
+            Próximo Passo →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de Notificação -->
+  <div id="recipeToast" class="fixed bottom-6 right-6 z-[120] hidden px-5 py-3 rounded-xl bg-[#221A17] text-white text-xs font-medium shadow-2xl flex items-center gap-2 transition-all">
+    <span class="material-symbols-outlined text-sm text-[#C49A54]">check_circle</span>
+    <span id="recipeToastMsg">Receita salva no seu caderno com sucesso!</span>
+  </div>
+
+  <!-- Rodapé Oficial -->
+  <footer class="w-full bg-[#FFF1EC] mt-20 border-t border-[#EFDFDA]">
+    <div class="max-w-[1640px] mx-auto px-6 lg:px-12 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#EFDFDA]">
+        <div class="md:col-span-4 space-y-4">
+          <img src="../assets/images/logo.png" alt="Mavory" class="h-8 w-auto object-contain">
+          <p class="text-xs text-[#534343] leading-relaxed max-w-sm">
+            Um compêndio de narrativas culinárias, tradições de terroir e cadernos de campo dedicados aos amantes da autêntica gastronomia global.
+          </p>
+        </div>
+        <div class="md:col-span-4 space-y-3">
+          <span class="text-xs uppercase font-bold tracking-wider text-[#722F37]">Mapa Gastronômico</span>
+          <div class="grid grid-cols-2 gap-2 text-xs text-[#534343]">
+            <a href="receitas.html" class="hover:text-[#722F37] transition-colors">Caderno de Receitas</a>
+            <a href="descobrir.html" class="hover:text-[#722F37] transition-colors">Terroirs &amp; Regiões</a>
+            <a href="descobrir.html" class="hover:text-[#722F37] transition-colors">Guia de Produtores</a>
+            <a href="comunidade.html" class="hover:text-[#722F37] transition-colors">Crônicas e Ensaios</a>
+          </div>
+        </div>
+        <div class="md:col-span-4 space-y-3">
+          <span class="text-xs uppercase font-bold tracking-wider text-[#722F37]">Notas do Chef</span>
+          <p class="text-xs text-[#534343]">Receba quinzenalmente ensaios de culinária artesanal, viagens de descoberta e receitas originais.</p>
+          <form class="flex gap-2" onsubmit="event.preventDefault(); showToast('Inscrição confirmada na gazette!');">
+            <input type="email" placeholder="Seu melhor e-mail" required class="flex-1 h-10 px-3 rounded-lg bg-white border border-[#D8C1C2] text-xs text-[#221A17] placeholder:text-[#867273] focus:outline-none focus:border-[#722F37]">
+            <button type="submit" class="h-10 px-5 rounded-lg bg-[#722F37] text-white text-xs font-semibold hover:bg-[#561922] transition-colors">Assinar</button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#867273]">
+        <p>Mavory © 2025 • Exploração Gastronômica Mundial</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-[#722F37] transition-colors">Manifesto Editorial</a>
+          <a href="#" class="hover:text-[#722F37] transition-colors">Privacidade</a>
+          <a href="#" class="hover:text-[#722F37] transition-colors">Acervo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+  <script>
+    // Gerenciamento de Porções
+    let currentServings = 2;
+    function adjustServings(delta) {
+      currentServings = Math.max(1, Math.min(10, currentServings + delta));
+      const text = currentServings === 1 ? '1 tigela' : `${currentServings} tigelas`;
+      document.getElementById('servingsDisplay').textContent = text;
+      document.getElementById('servingsBadge').textContent = text;
+
+      // Atualiza quantidades proporcionais
+      const factor = currentServings / 2;
+      document.querySelectorAll('.ingredient-qty').forEach(el => {
+        const base = parseFloat(el.getAttribute('data-base'));
+        const unit = el.getAttribute('data-unit');
+        if (!isNaN(base)) {
+          const newQty = Math.round(base * factor);
+          el.textContent = `${newQty}${unit}`;
+        }
+      });
+    }
+
+    // Contagem de Ingredientes Selecionados
+    function updateSelectedCount() {
+      const total = document.querySelectorAll('#ingredientsList input[type="checkbox"]').length;
+      const checked = document.querySelectorAll('#ingredientsList input[type="checkbox"]:checked').length;
+      document.getElementById('selectedCountText').textContent = `${checked} de ${total}`;
+    }
+
+    // Favoritos no Detalhe
+    function checkDetailFavorite() {
+      const favs = mavoryRead(MAVORY_STORAGE.favorites, []);
+      const isFav = favs.includes('ramen');
+      const icon = document.getElementById('detailBookmarkIcon');
+      if (icon) {
+        icon.textContent = isFav ? 'bookmark' : 'bookmark_border';
+        icon.style.fontVariationSettings = isFav ? "'FILL' 1" : "'FILL' 0";
+      }
+    }
+
+    function toggleDetailBookmark() {
+      const favs = mavoryRead(MAVORY_STORAGE.favorites, []);
+      const isFav = favs.includes('ramen');
+      const next = isFav ? favs.filter(id => id !== 'ramen') : [...favs, 'ramen'];
+      mavoryWrite(MAVORY_STORAGE.favorites, next);
+      checkDetailFavorite();
+      showToast(isFav ? 'Receita removida dos favoritos' : 'Receita salva no seu caderno!');
+    }
+
+    function shareRecipeLink() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Ramen Shoyu com Chashu Artesanal — Mavory',
+          text: 'Descubra a receita clássica no caderno Mavory',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        showToast('Link da receita copiado para a área de transferência!');
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('recipeToast');
+      const toastMsg = document.getElementById('recipeToastMsg');
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3000);
+    }
+
+    // Modo de Cocção Interativo
+    const stepsData = [
+      {
+        phase: "Passo 1 • O Caldo Base (Chintan Dashi)",
+        desc: "Hidrate as lâminas de kombu e cogumelos shiitake em fogo baixo, nunca permitindo a fervura borbulhante. Após retirar a alga no ponto de fulgor, adicione a carcaça de ave pré-escaldada e mantenha a infusão límpida em 85°C com escumação constante.",
+        time: 3600 // 60 min
+      },
+      {
+        phase: "Passo 2 • O Chashu Caramelizado",
+        desc: "Sele a pancetta cilíndrica amarrada em panela de ferro fundido até formar crosta dourada uniforme. Transfira para líquido de braseamento com mirin, saquê seco, açúcar mascavo e shoyu. Cozinhe em fogo brando com tampa tipo drop-lid (落とし蓋). Resfrie antes de cortar fino.",
+        time: 4200 // 70 min
+      },
+      {
+        phase: "Passo 3 • Os Ovos Marinados (Ajitsuke)",
+        desc: "Mergulhe os ovos em ebulição vigorosa cronometrando exatamente 6 minutos e 15 segundos. Resfrie em banho de gelo com água pura. Descasque sob fluxo leve e deixe imergir na marinada do chashu por no mínimo 4 horas.",
+        time: 375 // 6m 15s
+      },
+      {
+        phase: "Passo 4 • Montagem da Tigela & Tare",
+        desc: "Aqueça as tigelas de cerâmica com água quente prévia. Despeje 30ml de tare e o óleo aromatizado no fundo. Verta o caldo fervente, dobre a massa fresca cozida por exatos 50 segundos, posicione o chashu maçaricado levemente, meio ovo marinado, brotos e folha de nori seca.",
+        time: 300 // 5 min
+      }
+    ];
+
+    let currentStepIdx = 0;
+    let timerInterval = null;
+    let timerSeconds = 3600;
+    let isTimerRunning = false;
+
+    function startCookingMode() {
+      currentStepIdx = 0;
+      updateCookingStepUI();
+      document.getElementById('cookingModal').classList.remove('hidden');
+    }
+
+    function closeCookingMode() {
+      pauseCookingTimer();
+      document.getElementById('cookingModal').classList.add('hidden');
+    }
+
+    function changeCookingStep(delta) {
+      pauseCookingTimer();
+      currentStepIdx = Math.max(0, Math.min(stepsData.length - 1, currentStepIdx + delta));
+      updateCookingStepUI();
+    }
+
+    function updateCookingStepUI() {
+      const step = stepsData[currentStepIdx];
+      document.getElementById('modalStepTitle').textContent = `Modo de Cocção — Passo ${currentStepIdx + 1} de ${stepsData.length}`;
+      document.getElementById('modalStepPhase').textContent = step.phase;
+      document.getElementById('modalStepInstructions').innerHTML = step.desc;
+      timerSeconds = step.time;
+      formatTimer();
+
+      document.getElementById('prevStepBtn').disabled = currentStepIdx === 0;
+      const nextBtn = document.getElementById('nextStepBtn');
+      if (currentStepIdx === stepsData.length - 1) {
+        nextBtn.textContent = 'Concluir Cocção ✔';
+        nextBtn.onclick = function() {
+          closeCookingMode();
+          showToast('Cocção concluída com maestria! Bom apetite!');
+        };
+      } else {
+        nextBtn.textContent = 'Próximo Passo →';
+        nextBtn.onclick = function() { changeCookingStep(1); };
+      }
+
+      // Indicadores
+      const dots = document.getElementById('stepDots').children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = i === currentStepIdx 
+          ? "w-2.5 h-2.5 rounded-full bg-[#722F37]" 
+          : "w-2.5 h-2.5 rounded-full bg-[#D8C1C2]";
+      }
+    }
+
+    function formatTimer() {
+      const m = Math.floor(timerSeconds / 60);
+      const s = timerSeconds % 60;
+      document.getElementById('timerDisplay').textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function toggleCookingTimer() {
+      if (isTimerRunning) {
+        pauseCookingTimer();
+      } else {
+        isTimerRunning = true;
+        document.getElementById('timerText').textContent = 'Pausar Timer';
+        document.getElementById('timerIcon').textContent = 'pause';
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            formatTimer();
+          } else {
+            pauseCookingTimer();
+            showToast('Tempo do passo concluído!');
+          }
+        }, 1000);
+      }
+    }
+
+    function pauseCookingTimer() {
+      isTimerRunning = false;
+      clearInterval(timerInterval);
+      const text = document.getElementById('timerText');
+      const icon = document.getElementById('timerIcon');
+      if (text) text.textContent = 'Iniciar Timer';
+      if (icon) icon.textContent = 'play_arrow';
+    }
+
+    function resetCookingTimer() {
+      pauseCookingTimer();
+      timerSeconds = stepsData[currentStepIdx].time;
+      formatTimer();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      checkDetailFavorite();
+    });
+  </script>
+</body>
+</html>

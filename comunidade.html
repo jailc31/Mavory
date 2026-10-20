@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunidade Gastronômica & Relatos de Cozinha — Mavory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#722F37",
+            "primary-dark": "#561922",
+            "primary-container": "#722F37",
+            "on-primary": "#ffffff",
+            "surface": "#FFF8F6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#FFF1EC",
+            "surface-container": "#FBEAE5",
+            "surface-container-high": "#F5E5E0",
+            "surface-container-highest": "#EFDFDA",
+            "on-surface": "#221A17",
+            "on-surface-variant": "#534343",
+            "outline": "#867273",
+            "outline-variant": "#D8C1C2",
+            "gold": "#C49A54",
+            "tertiary": "#402A00",
+            "secondary": "#34483C",
+            "secondary-container": "#CEE5D5"
+          },
+          fontFamily: {
+            headline: ["Playfair Display", "serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="bg-[#FFF8F6] text-[#221A17] font-body antialiased selection:bg-[#722F37] selection:text-white">
+
+  <!-- Faixa de Modo Visitante Superior (Fiel ao MacBook Pro 16_ - 9.png) -->
+  <div id="visitorTopBanner" class="w-full bg-[#FFF1EC] border-b border-[#EFDFDA] py-1.5 px-6 text-center text-xs text-[#534343] flex items-center justify-center gap-2">
+    <span class="w-1.5 h-1.5 rounded-full bg-[#C49A54]"></span>
+    <span>Modo Visitante • Faça login para salvar receitas no seu caderno e interagir com a comunidade</span>
+    <button onclick="toggleAuthMode()" class="text-[#722F37] font-semibold underline hover:text-[#561922] ml-2">Alternar para Usuário Conectado</button>
+  </div>
+
+  <!-- Header Global -->
+  <header class="sticky top-0 z-50 bg-[#FFF8F6]/95 backdrop-blur-md border-b border-[#EFDFDA]">
+    <div class="h-20 max-w-[1640px] mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="inicio.html" class="flex items-center">
+          <img src="../assets/images/logo.png" alt="Mavory" class="h-10 w-auto object-contain">
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center gap-2">
+        <a href="inicio.html" class="px-4 py-2 font-body text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Início</a>
+        <a href="descobrir.html" class="px-4 py-2 font-body text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Explorar</a>
+        <a href="receitas.html" class="px-4 py-2 font-body text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Receitas</a>
+        <a href="comunidade.html" class="px-4 py-2 font-body text-sm font-semibold text-[#34483C] bg-[#CEE5D5] rounded-lg transition-all">Comunidade</a>
+        <a href="compartilhar.html" class="px-4 py-2 font-body text-sm font-medium text-[#534343] hover:text-[#221A17] hover:bg-[#FBEAE5] rounded-lg transition-all">Compartilhar</a>
+      </nav>
+      
+      <!-- Lado direito do Header (Auth vs Visitor) -->
+      <div class="flex items-center gap-3" id="headerAuthArea">
+        <a href="login.html" class="px-4 py-2 text-xs font-semibold text-[#534343] hover:text-[#722F37] transition-colors">Entrar</a>
+        <a href="cadastro.html" class="px-5 py-2 rounded-full bg-[#722F37] hover:bg-[#561922] text-white font-body text-xs font-semibold transition-all shadow-sm">Criar conta</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner de Acesso Livre / Edição do Leitor -->
+  <div class="max-w-[1640px] mx-auto px-6 lg:px-12 pt-6">
+    <div class="rounded-2xl bg-[#FFF1EC] p-5 sm:p-6 border border-[#EFDFDA] flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-full bg-[#CEE5D5] text-[#34483C] flex items-center justify-center shrink-0 mt-0.5">
+          <span class="material-symbols-outlined text-[20px]">menu_book</span>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase font-bold tracking-wider text-[#C49A54] block">Acesso Livre • Edição do Leitor</span>
+          <h3 class="font-headline text-base font-semibold text-[#221A17]">Você está explorando a comunidade em modo visitante.</h3>
+          <p class="text-xs text-[#534343] mt-0.5">Entre com sua conta editorial para interagir com relatos, trocar técnicas e publicar criações da sua cozinha.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="login.html" class="px-5 py-2.5 rounded-full bg-[#722F37] hover:bg-[#561922] text-white text-xs font-semibold transition-all">Entrar na Conta</a>
+        <a href="cadastro.html" class="px-5 py-2.5 rounded-full bg-[#FBEAE5] hover:bg-[#F5E5E0] text-[#722F37] text-xs font-semibold border border-[#D8C1C2] transition-all">Criar Cadastro</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-[1640px] mx-auto px-6 lg:px-12 py-8">
+    <!-- Cabeçalho Editorial -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6">
+      <div class="space-y-2 max-w-2xl">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-[#867273]">Caderno Colaborativo • Vol. IV • Crônicas do Terroir</span>
+        <h1 class="font-headline text-3xl sm:text-4xl lg:text-[40px] font-semibold text-[#722F37] tracking-tight">
+          Comunidade Gastronômica &amp; Relatos de Cozinha
+        </h1>
+        <p class="text-sm text-[#534343] leading-relaxed">
+          Experiências culinárias compartilhadas por entusiastas, artesãos do pão e cozinheiros do mundo inteiro. Técnicas ancestrais, acertos do forno e memórias afetivas.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 shrink-0">
+        <span class="text-xs text-[#534343] flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-[#C49A54]">schedule</span>
+          1.842 relatos homologados pela curadoria
+        </span>
+        <a href="compartilhar.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#722F37] hover:bg-[#561922] text-white font-body text-xs font-semibold transition-all shadow-md active:scale-95">
+          <span class="material-symbols-outlined text-[16px]">edit</span>
+          <span>Publicar Prato</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Filtros de Categoria e Ordenação -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-4 border-y border-[#EFDFDA]">
+      <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0" id="communityFilters">
+        <button onclick="filterCommunity('todos', this)" class="px-4 py-1.5 rounded-full bg-[#722F37] text-white text-xs font-semibold shadow-sm transition-all">Em destaque</button>
+        <button onclick="filterCommunity('recentes', this)" class="px-4 py-1.5 rounded-full bg-[#FBEAE5] text-[#534343] hover:text-[#221A17] text-xs font-medium transition-all">Mais recentes</button>
+        <button onclick="filterCommunity('paes', this)" class="px-4 py-1.5 rounded-full bg-[#FBEAE5] text-[#534343] hover:text-[#221A17] text-xs font-medium transition-all">Pães &amp; Fermentação</button>
+        <button onclick="filterCommunity('regional', this)" class="px-4 py-1.5 rounded-full bg-[#FBEAE5] text-[#534343] hover:text-[#221A17] text-xs font-medium transition-all">Cozinha Regional</button>
+        <button onclick="filterCommunity('sobremesas', this)" class="px-4 py-1.5 rounded-full bg-[#FBEAE5] text-[#534343] hover:text-[#221A17] text-xs font-medium transition-all">Sobremesas</button>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-[#534343] shrink-0 self-end sm:self-auto">
+        <span>Organizar por:</span>
+        <select class="bg-[#FBEAE5] text-[#221A17] rounded-lg px-2.5 py-1 text-xs focus:outline-none border-0 font-medium">
+          <option>Relevância Editorial</option>
+          <option>Mais Recentes</option>
+          <option>Mais Curtidos</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Container para Pratos Compartilhados pelo Usuário (se houver) -->
+    <div id="userSharedPostsContainer" class="space-y-6 pt-6"></div>
+
+    <!-- Grid Oficial dos 4 Relatos da Comunidade (Fiel ao MacBook Pro 16_ - 9.png) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6" id="communityCardsGrid">
+      
+      <!-- Card 1: Camila Duarte -->
+      <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-md transition-shadow group" data-category="paes">
+        <div>
+          <!-- Imagem com Badges -->
+          <div class="relative w-full aspect-[16/9] bg-[#FBEAE5] overflow-hidden">
+            <img src="../assets/images/comunidade-camila.jpg" alt="Pão Rústico de Fermentação Natural" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 flex items-center gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-[#221A17]/80 backdrop-blur-sm text-white text-[10px] font-bold tracking-wider uppercase">Pães &amp; Fermentação</span>
+              <span class="px-2.5 py-1 rounded-full bg-[#C49A54] text-white text-[10px] font-bold tracking-wider uppercase">Levain 75% Hidratação</span>
+            </div>
+            <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#722F37] hover:bg-[#722F37] hover:text-white transition-colors" onclick="toggleCardBookmark(this)" title="Salvar">
+              <span class="material-symbols-outlined text-[17px]">bookmark_border</span>
+            </button>
+          </div>
+
+          <!-- Informações do Autor e Conteúdo -->
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-[#FBEAE5] text-[#722F37] font-bold text-sm flex items-center justify-center">C</div>
+                <div>
+                  <h4 class="font-headline text-sm font-semibold text-[#221A17]">Camila Duarte</h4>
+                  <p class="text-[11px] text-[#867273]">Curitiba, Paraná • Há 3 dias</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#CEE5D5] text-[#34483C] text-[10px] font-bold tracking-wider uppercase">Cozinheiro Amador</span>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-[#722F37] transition-colors">
+                Pão Rústico de Fermentação Natural com Farinha Moída em Pedra
+              </h3>
+              <p class="text-xs text-[#534343] leading-relaxed italic border-l-2 border-[#D8C1C2] pl-3 py-0.5">
+                “Foram 36 horas de fermentação a frio. A combinação de trigo orgânico da serra com 15% de centeio integral deu uma profundidade aromática fantástica de maçã fermentada e malte tostado. A crosta cantou por quase 20 minutos após sair do forno holandês.”
+              </p>
+            </div>
+
+            <!-- Fichamento Técnico Chips -->
+            <div class="flex flex-wrap items-center gap-2 pt-1 text-[11px] text-[#534343]">
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FFF1EC]">
+                <span class="material-symbols-outlined text-[14px] text-[#722F37]">schedule</span> Preparo: 36h totais
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FFF1EC]">
+                <span class="material-symbols-outlined text-[14px] text-[#C49A54]">local_fire_department</span> Forno: 250°C ferro fundido
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FFF1EC]">
+                <span class="material-symbols-outlined text-[14px] text-[#34483C]">grain</span> Farinha: W300 pura
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rodapé do Card: Likes, Comentários e Link -->
+        <div class="p-6 pt-0 border-t border-[#EFDFDA]/60 mt-2 flex items-center justify-between text-xs text-[#534343]">
+          <div class="flex items-center gap-4">
+            <button onclick="toggleCardLike(this, 24)" class="flex items-center gap-1 hover:text-[#722F37] transition-colors">
+              <span class="material-symbols-outlined text-[17px] text-[#722F37]">favorite</span>
+              <span class="font-semibold text-[#221A17] like-counter">24</span>
+            </button>
+            <button onclick="openComments('Camila Duarte')" class="flex items-center gap-1 hover:text-[#722F37] transition-colors">
+              <span class="material-symbols-outlined text-[17px]">chat_bubble_outline</span>
+              <span>8</span>
+            </button>
+            <button onclick="shareRecipeLink()" class="hover:text-[#722F37] transition-colors" title="Compartilhar">
+              <span class="material-symbols-outlined text-[17px]">share</span>
+            </button>
+          </div>
+          <button onclick="openCronicaModal('Pão Rústico de Fermentação Natural', 'Camila Duarte', 'Foram 36 horas de fermentação a frio...')" class="text-xs font-semibold text-[#722F37] hover:underline flex items-center gap-1">
+            <span>Ver fichamento técnico</span>
+            <span class="material-symbols-outlined text-sm">east</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 2: Chef Lucas Prado -->
+      <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-md transition-shadow group" data-category="regional">
+        <div>
+          <div class="relative w-full aspect-[16/9] bg-[#FBEAE5] overflow-hidden">
+            <img src="../assets/images/comunidade-gnocchi.jpg" alt="Gnocchi de Batata Asterix Assada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 flex items-center gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-[#221A17]/80 backdrop-blur-sm text-white text-[10px] font-bold tracking-wider uppercase">Cozinha Regional</span>
+            </div>
+            <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#722F37] hover:bg-[#722F37] hover:text-white transition-colors" onclick="toggleCardBookmark(this)" title="Salvar">
+              <span class="material-symbols-outlined text-[17px]">bookmark_border</span>
+            </button>
+          </div>
+
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-[#FBEAE5] text-[#722F37] font-bold text-sm flex items-center justify-center">L</div>
+                <div>
+                  <h4 class="font-headline text-sm font-semibold text-[#221A17]">Chef Lucas Prado</h4>
+                  <p class="text-[11px] text-[#867273]">São Paulo, SP • Ontem</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#FBEAE5] text-[#722F37] text-[10px] font-bold tracking-wider uppercase">Cozinha Autoral</span>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-[#722F37] transition-colors">
+                Gnocchi de Batata Asterix Assada no Sal com Manteiga Queimada e Sálvia
+              </h3>
+              <p class="text-xs text-[#534343] leading-relaxed italic border-l-2 border-[#D8C1C2] pl-3 py-0.5">
+                “O segredo é jamais ferver a batata. Assá-la inteira sobre cama de sal grosso retira quase toda a umidade, permitindo usar míseros 10% de farinha. A massa fica com textura de nuvem que derrete no palato.”
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 pt-1 text-[11px] text-[#534343]">
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FFF1EC]">
+                <span class="material-symbols-outlined text-[14px] text-[#722F37]">oven_gen</span> Batata: Asterix em crosta de sal
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FFF1EC]">
+                <span class="material-symbols-outlined text-[14px] text-[#C49A54]">skillet</span> Manteiga: Beurre Noisette artesanal
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0 border-t border-[#EFDFDA]/60 mt-2 flex items-center justify-between text-xs text-[#534343]">
+          <div class="flex items-center gap-4">
+            <button onclick="toggleCardLike(this, 42)" class="flex items-center gap-1 hover:text-[#722F37] transition-colors">
+              <span class="material-symbols-outlined text-[17px] text-[#722F37]">favorite</span>
+              <span class="font-semibold text-[#221A17] like-counter">42</span>
+            </button>
+            <button onclick="openComments('Chef Lucas Prado')" class="flex items-center gap-1 hover:text-[#722F37] transition-colors">
+              <span class="material-symbols-outlined text-[17px]">chat_bubble_outline</span>
+              <span>14</span>
+            </button>
+            <button onclick="shareRecipeLink()" class="hover:text-[#722F37] transition-colors" title="Compartilhar">
+              <span class="material-symbols-outlined text-[17px]">share</span>
+            </button>
+          </div>
+          <button onclick="openCronicaModal('Gnocchi de Batata Asterix', 'Chef Lucas Prado', 'O segredo é jamais ferver a batata...')" class="text-xs font-semibold text-[#722F37] hover:underline flex items-center gap-1">
+            <span>Ler crônica</span>
+            <span class="material-symbols-outlined text-sm">east</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 3: Dona Dadá -->
+      <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-md transition-shadow group" data-category="regional">
+        <div>
+          <div class="relative w-full aspect-[16/9] bg-[#FBEAE5] overflow-hidden">
+            <img src="../assets/images/comunidade-moqueca.jpg" alt="Moqueca de Badejo com Camarão Seco" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 flex items-center gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-[#221A17]/80 backdrop-blur-sm text-white text-[10px] font-bold tracking-wider uppercase">Patrimônio &amp; Tradição</span>
+              <span class="px-2.5 py-1 rounded-full bg-[#C49A54] text-white text-[10px] font-bold tracking-wider uppercase">Dendê de Pilão</span>
+            </div>
+            <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#722F37] hover:bg-[#722F37] hover:text-white transition-colors" onclick="toggleCardBookmark(this)" title="Salvar">
+              <span class="material-symbols-outlined text-[17px]">bookmark_border</span>
+            </button>
+          </div>
+
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-[#CEE5D5] text-[#34483C] font-bold text-sm flex items-center justify-center">D</div>
+                <div>
+                  <h4 class="font-headline text-sm font-semibold text-[#221A17]">Dona Dadá</h4>
+                  <p class="text-[11px] text-[#867273]">Salvador, Bahia • Há 5 dias</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#CEE5D5] text-[#34483C] text-[10px] font-bold tracking-wider uppercase">Mestre de Tradição</span>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-[#722F37] transition-colors">
+                Moqueca de Badejo com Camarão Seco em Panela de Barro Curada
+              </h3>
+              <p class="text-xs text-[#534343] leading-relaxed italic border-l-2 border-[#D8C1C2] pl-3 py-0.5">
+                “Leite de coco extraído na hora com água morna da prensa, e dendê puro de Valença sem refino. O tempero da panela é o que dá o tom: ela já cozinha histórias nesta família há três gerações. Não precisa de água, só o suco das ervas e dos peixes.”
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 pt-1 text-[11px] text-[#534343]">
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FFF1EC]">
+                <span class="material-symbols-outlined text-[14px] text-[#722F37]">local_fire_department</span> Fogo lento: 45 min
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FFF1EC]">
+                <span class="material-symbols-outlined text-[14px] text-[#C49A54]">soup_kitchen</span> Utensílio: Barro de Maragogipinho
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0 border-t border-[#EFDFDA]/60 mt-2 flex items-center justify-between text-xs text-[#534343]">
+          <div class="flex items-center gap-4">
+            <button onclick="toggleCardLike(this, 56)" class="flex items-center gap-1 hover:text-[#722F37] transition-colors">
+              <span class="material-symbols-outlined text-[17px] text-[#722F37]">favorite</span>
+              <span class="font-semibold text-[#221A17] like-counter">56</span>
+            </button>
+            <button onclick="openComments('Dona Dadá')" class="flex items-center gap-1 hover:text-[#722F37] transition-colors">
+              <span class="material-symbols-outlined text-[17px]">chat_bubble_outline</span>
+              <span>29</span>
+            </button>
+            <button onclick="shareRecipeLink()" class="hover:text-[#722F37] transition-colors" title="Compartilhar">
+              <span class="material-symbols-outlined text-[17px]">share</span>
+            </button>
+          </div>
+          <button onclick="openCronicaModal('Moqueca de Badejo', 'Dona Dadá', 'Leite de coco extraído na hora com água morna...')" class="text-xs font-semibold text-[#722F37] hover:underline flex items-center gap-1">
+            <span>Ler crônica</span>
+            <span class="material-symbols-outlined text-sm">east</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 4: Rafael Mori -->
+      <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EFDFDA] flex flex-col justify-between hover:shadow-md transition-shadow group" data-category="sobremesas">
+        <div>
+          <div class="relative w-full aspect-[16/9] bg-[#FBEAE5] overflow-hidden">
+            <img src="../assets/images/comunidade-tartar.jpg" alt="Tartar de Atum Fresco" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 flex items-center gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-[#221A17]/80 backdrop-blur-sm text-white text-[10px] font-bold tracking-wider uppercase">Cozinha Fria</span>
+              <span class="px-2.5 py-1 rounded-full bg-[#34483C] text-white text-[10px] font-bold tracking-wider uppercase">Pesca Sustentável</span>
+            </div>
+            <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#722F37] hover:bg-[#722F37] hover:text-white transition-colors" onclick="toggleCardBookmark(this)" title="Salvar">
+              <span class="material-symbols-outlined text-[17px]">bookmark_border</span>
+            </button>
+          </div>
+
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-[#FBEAE5] text-[#722F37] font-bold text-sm flex items-center justify-center">R</div>
+                <div>
+                  <h4 class="font-headline text-sm font-semibold text-[#221A17]">Rafael Mori</h4>
+                  <p class="text-[11px] text-[#867273]">Florianópolis, SC • Há 6 dias</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#FBEAE5] text-[#722F37] text-[10px] font-bold tracking-wider uppercase">Entusiasta</span>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="font-headline text-xl font-semibold text-[#221A17] group-hover:text-[#722F37] transition-colors">
+                Tartar de Atum Fresco com Emulsão Cítrica de Yuzu e Telha de Nori
+              </h3>
+              <p class="text-xs text-[#534343] leading-relaxed italic border-l-2 border-[#D8C1C2] pl-3 py-0.5">
+                “Peixe recebido direto da cooperativa de pescadores de Laguna. Corte em brunoise meticuloso com faca de alto carbono para preservar as fibras. O yuzu confere uma acidez floral delicada que não cozinha a proteína como o limão tahiti comum faria.”
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 pt-1 text-[11px] text-[#534343]">
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FFF1EC]">
+                <span class="material-symbols-outlined text-[14px] text-[#722F37]">sailing</span> Origem: Laguna Costeira
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FFF1EC]">
+                <span class="material-symbols-outlined text-[14px] text-[#34483C]">restaurant</span> Técnica: Brunoise à Faca Fria
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0 border-t border-[#EFDFDA]/60 mt-2 flex items-center justify-between text-xs text-[#534343]">
+          <div class="flex items-center gap-4">
+            <button onclick="toggleCardLike(this, 19)" class="flex items-center gap-1 hover:text-[#722F37] transition-colors">
+              <span class="material-symbols-outlined text-[17px] text-[#722F37]">favorite</span>
+              <span class="font-semibold text-[#221A17] like-counter">19</span>
+            </button>
+            <button onclick="openComments('Rafael Mori')" class="flex items-center gap-1 hover:text-[#722F37] transition-colors">
+              <span class="material-symbols-outlined text-[17px]">chat_bubble_outline</span>
+              <span>5</span>
+            </button>
+            <button onclick="shareRecipeLink()" class="hover:text-[#722F37] transition-colors" title="Compartilhar">
+              <span class="material-symbols-outlined text-[17px]">share</span>
+            </button>
+          </div>
+          <button onclick="openCronicaModal('Tartar de Atum Fresco', 'Rafael Mori', 'Peixe recebido direto da cooperativa...')" class="text-xs font-semibold text-[#722F37] hover:underline flex items-center gap-1">
+            <span>Ler crônica</span>
+            <span class="material-symbols-outlined text-sm">east</span>
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Botão Carregar Mais Relatos -->
+    <div class="flex flex-col items-center justify-center gap-2 pt-12">
+      <button onclick="loadMoreCommunity()" class="px-8 py-3 rounded-full bg-[#FBEAE5] hover:bg-[#F5E5E0] text-[#722F37] text-xs font-semibold transition-all shadow-sm active:scale-95 flex items-center gap-2">
+        <span>Carregar Mais Relatos da Comunidade</span>
+        <span class="material-symbols-outlined text-sm">expand_more</span>
+      </button>
+      <span class="text-[11px] text-[#867273]">Exibindo 4 de 1.842 crônicas • Curadoria Mavory</span>
+    </div>
+
+    <!-- Seção Gazette dos Cozinheiros (Fiel ao MacBook Pro 16_ - 9.png) -->
+    <section class="mt-16 rounded-3xl bg-[#FFF1EC] p-8 lg:p-12 border border-[#EFDFDA] flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="space-y-2 max-w-xl">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-[#722F37]">Gazette dos Cozinheiros</span>
+        <h2 class="font-headline text-2xl lg:text-3xl font-semibold text-[#221A17]">
+          Tem um segredo de família ou uma técnica que refinou na sua bancada?
+        </h2>
+        <p class="text-xs text-[#534343] leading-relaxed">
+          A Mavory publica crônicas fotográficas de assinantes mensalmente na edição impressa e no compêndio digital. Crie seu caderno, publique suas receitas e participe das conversas de terroir.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+        <a href="compartilhar.html" class="px-6 py-3.5 rounded-full bg-[#722F37] hover:bg-[#561922] text-white text-xs font-semibold text-center transition-all shadow-md">
+          Compartilhar Minha Cozinha
+        </a>
+        <a href="#" class="px-6 py-3.5 rounded-full bg-white hover:bg-[#FBEAE5] text-[#221A17] text-xs font-semibold border border-[#D8C1C2] text-center transition-all">
+          Conhecer Diretrizes de Curadoria
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Crônica Completa -->
+  <div id="cronicaModal" class="hidden fixed inset-0 z-[100] bg-[#302724]/75 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-[#FFF8F6] rounded-2xl shadow-2xl overflow-hidden border border-[#EFDFDA] p-6 space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-[#EFDFDA]">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#722F37]">Crônica Culinária Homologada</span>
+          <h3 class="font-headline text-xl font-semibold text-[#221A17]" id="modalCronicaTitle">Título</h3>
+          <p class="text-xs text-[#867273]" id="modalCronicaAuthor">Autor</p>
+        </div>
+        <button onclick="closeCronicaModal()" class="w-8 h-8 rounded-full hover:bg-[#FBEAE5] text-[#534343] flex items-center justify-center">✕</button>
+      </div>
+      <div class="text-sm text-[#534343] leading-relaxed space-y-3" id="modalCronicaBody"></div>
+      <div class="pt-4 border-t border-[#EFDFDA] flex justify-end">
+        <button onclick="closeCronicaModal()" class="px-5 py-2 rounded-full bg-[#722F37] text-white text-xs font-semibold">Fechar Crônica</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Comentários -->
+  <div id="commentsModal" class="hidden fixed inset-0 z-[100] bg-[#302724]/75 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-[#FFF8F6] rounded-2xl shadow-2xl overflow-hidden border border-[#EFDFDA] p-6 space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-[#EFDFDA]">
+        <h3 class="font-headline text-lg font-semibold text-[#221A17]">Comentários da Comunidade</h3>
+        <button onclick="closeComments()" class="w-8 h-8 rounded-full hover:bg-[#FBEAE5] text-[#534343] flex items-center justify-center">✕</button>
+      </div>
+      <div class="space-y-3 max-h-60 overflow-y-auto text-xs" id="commentsList">
+        <div class="p-3 rounded-lg bg-white border border-[#EFDFDA]">
+          <strong class="text-[#221A17]">Helena Rizzo:</strong>
+          <p class="text-[#534343] mt-0.5">Execução impecável! A proporção de hidratação fez toda a diferença na formação dos alvéolos.</p>
+        </div>
+        <div class="p-3 rounded-lg bg-white border border-[#EFDFDA]">
+          <strong class="text-[#221A17]">Mateo Gómez:</strong>
+          <p class="text-[#534343] mt-0.5">Excelente nota sobre a temperatura do forno holandês. Inspirador!</p>
+        </div>
+      </div>
+      <form onsubmit="addComment(event)" class="flex gap-2 pt-2 border-t border-[#EFDFDA]">
+        <input type="text" id="newCommentInput" placeholder="Deixe sua nota culinária..." required class="flex-1 px-3 py-2 rounded-lg bg-white border border-[#D8C1C2] text-xs text-[#221A17] focus:outline-none focus:border-[#722F37]">
+        <button type="submit" class="px-4 py-2 rounded-lg bg-[#722F37] text-white text-xs font-semibold">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Rodapé Oficial -->
+  <footer class="w-full bg-[#FFF1EC] mt-20 border-t border-[#EFDFDA]">
+    <div class="max-w-[1640px] mx-auto px-6 lg:px-12 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#EFDFDA]">
+        <div class="md:col-span-4 space-y-4">
+          <img src="../assets/images/logo.png" alt="Mavory" class="h-8 w-auto object-contain">
+          <p class="text-xs text-[#534343] leading-relaxed max-w-sm">
+            Uma publicação digital dedicada ao patrimônio culinário, técnicas artesanais e à crônica sensível dos ingredientes de origem.
+          </p>
+          <p class="text-[11px] text-[#867273]">Circulação Curada • 2024</p>
+        </div>
+        <div class="md:col-span-4 space-y-3">
+          <span class="text-xs uppercase font-bold tracking-wider text-[#722F37]">Mavory Receitas &amp; Culinária</span>
+          <div class="grid grid-cols-2 gap-2 text-xs text-[#534343]">
+            <a href="receitas.html" class="hover:text-[#722F37] transition-colors">Acervo de Clássicos</a>
+            <a href="descobrir.html" class="hover:text-[#722F37] transition-colors">Técnicas de Fogo &amp; Fermentação</a>
+            <a href="descobrir.html" class="hover:text-[#722F37] transition-colors">Ingredientes da Terra</a>
+            <a href="receitas.html" class="hover:text-[#722F37] transition-colors">Cadernos Estacionais</a>
+            <a href="descobrir.html" class="hover:text-[#722F37] transition-colors">Índice de Produtores</a>
+          </div>
+        </div>
+        <div class="md:col-span-4 space-y-3">
+          <span class="text-xs uppercase font-bold tracking-wider text-[#722F37]">Comunidade &amp; Gazette</span>
+          <p class="text-xs text-[#534343]">Receba semanalmente crônicas gastronômicas, ensaios e seleções de colheita no seu e-mail.</p>
+          <form class="flex gap-2" onsubmit="event.preventDefault(); alert('Inscrição confirmada!');">
+            <input type="email" placeholder="Seu melhor e-mail" required class="flex-1 h-10 px-3 rounded-lg bg-white border border-[#D8C1C2] text-xs text-[#221A17] placeholder:text-[#867273] focus:outline-none focus:border-[#722F37]">
+            <button type="submit" class="h-10 px-5 rounded-lg bg-[#34483C] text-white text-xs font-semibold hover:bg-[#221A17] transition-colors">Assinar Gazette</button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#867273]">
+        <p>© 2024 Mavory Gastronomie &amp; Culture. Todos os direitos reservados.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-[#722F37] transition-colors">Privacidade</a>
+          <a href="#" class="hover:text-[#722F37] transition-colors">Termos Editoriais</a>
+          <a href="#" class="hover:text-[#722F37] transition-colors">Manifesto</a>
+          <a href="#" class="hover:text-[#722F37] transition-colors">Acessibilidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+  <script>
+    // Carregar postagens salvas no navegador
+    function loadUserSharedPosts() {
+      const posts = mavoryRead(MAVORY_STORAGE.posts, []);
+      const container = document.getElementById('userSharedPostsContainer');
+      if (!container) return;
+
+      if (!posts || posts.length === 0) {
+        container.innerHTML = '';
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="pb-2">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#CEE5D5] text-[#34483C] text-xs font-semibold">
+            <span class="material-symbols-outlined text-[15px]">verified</span>
+            <span>Suas Publicações Recentes no Navegador (${posts.length})</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          ${posts.map(p => `
+            <article class="bg-white rounded-2xl overflow-hidden shadow-sm border-2 border-[#722F37]/30 flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <div class="relative w-full aspect-[16/9] bg-[#FBEAE5] overflow-hidden">
+                  <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover">
+                  <div class="absolute top-3 left-3">
+                    <span class="px-2.5 py-1 rounded-full bg-[#722F37] text-white text-[10px] font-bold tracking-wider uppercase">Publicação do Usuário</span>
+                  </div>
+                </div>
+                <div class="p-6 space-y-3">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-full bg-[#722F37] text-white font-bold text-xs flex items-center justify-center">C</div>
+                      <div>
+                        <h4 class="font-headline text-sm font-semibold text-[#221A17]">${p.author || 'Caleb'}</h4>
+                        <p class="text-[11px] text-[#867273]">Recentemente adicionado</p>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="font-headline text-xl font-semibold text-[#722F37]">${p.title}</h3>
+                  <p class="text-xs text-[#534343] leading-relaxed">${p.description}</p>
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function toggleCardLike(btn, initial) {
+      const counter = btn.querySelector('.like-counter');
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isLiked = icon.style.fontVariationSettings.includes("'FILL' 1");
+      if (isLiked) {
+        icon.style.fontVariationSettings = "'FILL' 0";
+        counter.textContent = String(initial);
+      } else {
+        icon.style.fontVariationSettings = "'FILL' 1";
+        counter.textContent = String(initial + 1);
+      }
+    }
+
+    function toggleCardBookmark(btn) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isBookmarked = icon.textContent === 'bookmark';
+      icon.textContent = isBookmarked ? 'bookmark_border' : 'bookmark';
+      icon.style.fontVariationSettings = isBookmarked ? "'FILL' 0" : "'FILL' 1";
+    }
+
+    function filterCommunity(cat, btn) {
+      document.querySelectorAll('#communityFilters button').forEach(b => {
+        b.className = "px-4 py-1.5 rounded-full bg-[#FBEAE5] text-[#534343] hover:text-[#221A17] text-xs font-medium transition-all";
+      });
+      btn.className = "px-4 py-1.5 rounded-full bg-[#722F37] text-white text-xs font-semibold shadow-sm transition-all";
+
+      const cards = document.querySelectorAll('#communityCardsGrid article');
+      cards.forEach(card => {
+        if (cat === 'todos' || card.dataset.category === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function loadMoreCommunity() {
+      alert('Todas as crônicas homologadas desta edição já estão carregadas na página.');
+    }
+
+    function openCronicaModal(title, author, body) {
+      document.getElementById('modalCronicaTitle').textContent = title;
+      document.getElementById('modalCronicaAuthor').textContent = `Por ${author} • Caderno Mavory`;
+      document.getElementById('modalCronicaBody').textContent = body;
+      document.getElementById('cronicaModal').classList.remove('hidden');
+    }
+
+    function closeCronicaModal() {
+      document.getElementById('cronicaModal').classList.add('hidden');
+    }
+
+    function openComments(author) {
+      document.getElementById('commentsModal').classList.remove('hidden');
+    }
+
+    function closeComments() {
+      document.getElementById('commentsModal').classList.add('hidden');
+    }
+
+    function addComment(e) {
+      e.preventDefault();
+      const input = document.getElementById('newCommentInput');
+      const list = document.getElementById('commentsList');
+      if (!input || !list) return;
+      const text = input.value.trim();
+      if (!text) return;
+      const div = document.createElement('div');
+      div.className = "p-3 rounded-lg bg-[#FBEAE5] border border-[#EFDFDA]";
+      div.innerHTML = `<strong class="text-[#722F37]">Você:</strong><p class="text-[#221A17] mt-0.5">${text}</p>`;
+      list.appendChild(div);
+      input.value = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadUserSharedPosts();
+    });
+  </script>
+</body>
+</html>

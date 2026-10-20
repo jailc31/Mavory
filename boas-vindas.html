@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bem-vindo ao Mavory — Fascículo de Entrada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="bg-[#FFF8F6] text-[#221A17] font-['Plus_Jakarta_Sans',sans-serif] min-h-screen flex flex-col justify-between p-6 antialiased selection:bg-[#722F37] selection:text-white">
+
+  <!-- Top Bar Navigation (Fiel ao MacBook Pro 16_ - 12.png) -->
+  <header class="w-full max-w-[1640px] mx-auto flex items-center justify-between py-2">
+    <a href="inicio.html" class="flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#534343] hover:text-[#722F37] transition-colors uppercase">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>
+      <span>Mavory</span>
+    </a>
+    <a href="inicio.html" class="font-['Playfair_Display'] text-xl font-semibold text-[#722F37] tracking-wide">
+      Mavory
+    </a>
+    <div class="w-16"></div>
+  </header>
+
+  <!-- Centered Welcome Card with Top Accent Gradient Bar -->
+  <main class="w-full flex-1 flex items-center justify-center py-6">
+    <div class="relative w-full max-w-[800px] bg-white rounded-3xl shadow-[0_12px_40px_rgba(48,39,36,0.06)] border border-[#EFDFDA] overflow-hidden p-8 sm:p-12 space-y-8">
+      
+      <!-- Top Decorative Accent Bar (Dourado para Verde Editorial) -->
+      <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#C49A54] via-[#722F37] to-[#34483C]"></div>
+
+      <!-- Icone de Confirmação & Selo -->
+      <div class="flex flex-col items-center text-center space-y-3 pt-2">
+        <img src="../assets/images/logo.png" alt="Mavory" class="h-8 w-auto object-contain">
+        
+        <!-- Emblema de Sucesso com Estrelas -->
+        <div class="relative w-16 h-16 rounded-full bg-[#722F37] text-white flex items-center justify-center shadow-lg my-2">
+          <span class="material-symbols-outlined text-[32px]">check</span>
+          <span class="absolute -top-1 -right-1 text-[#C49A54] text-xs">★</span>
+          <span class="absolute -bottom-1 -left-1 text-[#C49A54] text-xs">★</span>
+        </div>
+
+        <span class="text-xs font-bold uppercase tracking-widest text-[#C49A54]">
+          — Fascículo de Boas-Vindas • Mavory Web —
+        </span>
+        <h1 class="font-['Playfair_Display'] text-3xl sm:text-4xl font-semibold text-[#722F37] leading-tight">
+          Tudo pronto! Bem-vindo ao Mavory!
+        </h1>
+        <p class="text-xs sm:text-sm text-[#534343] leading-relaxed max-w-lg">
+          Seu perfil culinário e fichário pessoal foram criados com sucesso. Centenas de receitas ancestrais, técnicas clássicas e criações da comunidade esperam por você.
+        </p>
+      </div>
+
+      <!-- 3 Feature Cards (Fiel ao MacBook Pro 16_ - 12.png) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Card 1 -->
+        <div class="p-5 rounded-2xl bg-[#FFF1EC] border border-[#EFDFDA] flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="material-symbols-outlined text-[#722F37] text-[22px]">menu_book</span>
+              <span class="px-2 py-0.5 rounded-md bg-[#CEE5D5] text-[#34483C] text-[10px] font-bold uppercase tracking-wider">Liberado</span>
+            </div>
+            <h3 class="font-headline text-sm font-semibold text-[#221A17]">Caderno Ativo</h3>
+            <p class="text-xs text-[#534343] leading-relaxed">
+              Salve, organize e catalogue receitas no seu fichário pessoal sem limitações de anotações.
+            </p>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#C49A54] flex items-center gap-1">
+            <span>Fichário Ativado</span>
+            <span class="material-symbols-outlined text-xs">check</span>
+          </span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-5 rounded-2xl bg-[#FFF1EC] border border-[#EFDFDA] flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="material-symbols-outlined text-[#C49A54] text-[22px]">public</span>
+              <span class="px-2 py-0.5 rounded-md bg-[#FBEAE5] text-[#C49A54] text-[10px] font-bold uppercase tracking-wider">Novo</span>
+            </div>
+            <h3 class="font-headline text-sm font-semibold text-[#221A17]">Atlas Liberado</h3>
+            <p class="text-xs text-[#534343] leading-relaxed">
+              Explore terroirs autênticos, ingredientes protegidos e saberes culinários pelo mundo.
+            </p>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#C49A54] flex items-center gap-1">
+            <span>Rotas Mundiais</span>
+            <span class="material-symbols-outlined text-xs">link</span>
+          </span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-5 rounded-2xl bg-[#FFF1EC] border border-[#EFDFDA] flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="material-symbols-outlined text-[#34483C] text-[22px]">restaurant</span>
+              <span class="px-2 py-0.5 rounded-md bg-[#FBEAE5] text-[#722F37] text-[10px] font-bold uppercase tracking-wider">Conectado</span>
+            </div>
+            <h3 class="font-headline text-sm font-semibold text-[#221A17]">Comunidade</h3>
+            <p class="text-xs text-[#534343] leading-relaxed">
+              Compartilhe fotos dos seus preparos no fogão, troque notas com outros gastrônomos.
+            </p>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#C49A54] flex items-center gap-1">
+            <span>Mesa Aberta</span>
+            <span class="material-symbols-outlined text-xs">group</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Caixa Membro Fundador Registrado -->
+      <div class="p-4 rounded-2xl bg-[#FFF1EC] border border-[#EFDFDA] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#722F37] text-white flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[20px]">verified</span>
+          </div>
+          <div>
+            <h4 class="font-headline text-sm font-semibold text-[#221A17]">Membro Fundador Registrado</h4>
+            <p class="text-xs text-[#534343]">Seu código de acesso às coleções editoriais da estação está habilitado.</p>
+          </div>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-[#CEE5D5] text-[#34483C] text-[11px] font-bold tracking-wider uppercase shrink-0">
+          Edição No. 01 • Outono
+        </span>
+      </div>
+
+      <!-- Botões de Ação Final -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+        <a href="receitas.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#722F37] hover:bg-[#561922] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-md">
+          <span>Explorar Receitas</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+        <a href="inicio.html" class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white hover:bg-[#FBEAE5] text-[#221A17] text-xs font-semibold border border-[#D8C1C2] flex items-center justify-center gap-2 transition-all">
+          <span class="material-symbols-outlined text-sm">home</span>
+          <span>Ir para a página inicial</span>
+        </a>
+        <a href="perfil.html" class="w-full sm:w-auto px-6 py-3.5 rounded-full hover:bg-[#FFF1EC] text-[#534343] hover:text-[#722F37] text-xs font-semibold transition-all text-center">
+          Ver meu perfil
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="w-full text-center py-4 space-y-1">
+    <p class="font-['Playfair_Display'] text-xs text-[#867273] italic">
+      “A cozinha é o único patrimônio imaterial que se saboreia com todos os sentidos.”
+    </p>
+    <p class="text-[11px] text-[#867273]">
+      © Mavory Journal &amp; Gastronomia. Todos os direitos reservados.
+    </p>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>
